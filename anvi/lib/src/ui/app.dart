@@ -1,3 +1,4 @@
+import 'package:anvi/res/colors.dart';
 import 'package:anvi/src/blocs/tab_bloc.dart';
 import 'package:anvi/src/ui/custom_views/app_bar_home.dart';
 import 'package:anvi/src/ui/screens/bookmark_screen.dart';
@@ -23,22 +24,33 @@ class MyHomePage extends StatelessWidget {
   final TabBloc bloc = TabBloc();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 0,
-        onTap: (index) => bloc.selectTab(index),
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('Home')),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.mail), title: Text('Message')),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.person), title: Text('Profile')),
-        ],
-      ),
-      body: StreamBuilder(
-        stream: bloc.tabStream,
-        builder: (context, snapshot) => buildBody(snapshot.data),
-      ),
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
+        backgroundColor: AppColors.primaryColor,
+          bottomNavigationBar: TabBar(
+            tabs: [
+              Tab(
+                icon: Icon(Icons.home),
+              ),
+              Tab(
+                icon: Icon(Icons.bookmark),
+              ),
+              Tab(
+                icon: Icon(Icons.settings),
+              ),
+            ],
+            indicatorColor: AppColors.accentColor,
+            labelColor: AppColors.accentColor,
+            unselectedLabelColor: AppColors.appbarIconColor,
+          ),
+          body: TabBarView(
+            children: [
+              HomeScreen(),
+              BookmarkScreen(),
+              SettingScreen(),
+            ],
+          )),
     );
   }
 
