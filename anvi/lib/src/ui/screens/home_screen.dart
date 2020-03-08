@@ -1,6 +1,6 @@
-import 'package:anvi/custom_views/app_bar_home.dart';
-import 'package:anvi/custom_views/home_screen/discovery_view.dart';
 import 'package:anvi/res/colors.dart';
+import 'package:anvi/src/ui/custom_views/app_bar_home.dart';
+import 'package:anvi/src/ui/custom_views/home_screen/discovery_view.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {

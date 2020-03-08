@@ -6,7 +6,7 @@ class DiscoveryView extends StatelessWidget{
     return Container(
       child: Stack(
         children: <Widget>[
-          // Image(image: AssetImage("assets/fate-grand-order-babylonia.jpeg")),
+          Image(image: AssetImage("lib/res/assets/anime_slide1.png")),
           IconButton(
             icon: Icon(Icons.arrow_left),
             onPressed: () => {},

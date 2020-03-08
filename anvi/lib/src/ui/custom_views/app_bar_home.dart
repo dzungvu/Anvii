@@ -1,5 +1,5 @@
-import 'package:anvi/custom_views/res/colors.dart';
-import 'package:anvi/custom_views/res/dimens.dart';
+import 'package:anvi/res/colors.dart';
+import 'package:anvi/res/dimens.dart';
 import 'package:flutter/material.dart';
 
 class AppBarHome extends StatelessWidget implements PreferredSizeWidget {
