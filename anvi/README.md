@@ -1,7 +1,4 @@
 # Anvi
-[![Build Status - Cirrus][]][Build status]
-[![Gitter Channel][]][Gitter badge]
-[![Twitter handle][]][Twitter badge]
 
 ### NOTE: This application is in development process.
 This project contains Server and Client setup. So if you want to join, feel free to contact me
