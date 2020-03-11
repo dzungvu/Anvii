@@ -1,4 +1,6 @@
 import 'package:anvi/res/colors.dart';
+import 'package:anvi/res/dimens.dart';
+import 'package:anvi/src/blocs/discovery_indicator_bloc.dart';
 import 'package:anvi/src/models/discovery_item.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +10,8 @@ class DiscoveryView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    int _currentIndex = 0;
+    DiscoveryIndicatorBloc _bloc = DiscoveryIndicatorBloc();
     _listDiscoverItem.add(DiscoveryItem(
         id: '0',
         imageUrl:
@@ -27,44 +31,37 @@ class DiscoveryView extends StatelessWidget {
     return Stack(
       children: <Widget>[
         Container(
+          margin: EdgeInsets.only(
+              left: Dimens.safeAreaDistance, right: Dimens.safeAreaDistance),
           child: CarouselSlider.builder(
             aspectRatio: 3 / 1,
             autoPlay: true,
             reverse: false,
             initialPage: 0,
+            viewportFraction: 0.9,
+            pauseAutoPlayOnTouch: Duration(seconds: 5),
             autoPlayInterval: Duration(seconds: 3),
             autoPlayAnimationDuration: Duration(milliseconds: 300),
             itemCount: _listDiscoverItem.length,
             itemBuilder: (context, index) =>
                 getItemView(context, _listDiscoverItem[index]),
+            onPageChanged: (index) => _bloc.selectItem(index),
           ),
         ),
         Positioned(
-          left: 0.0,
-          top: 0.0,
-          bottom: 0.0,
-          child: Container(
-            color: AppColors.black80,
-            child: Icon(
-              Icons.arrow_left,
-              color: Colors.white,
-              size: 32.0,
-            ),
-          ),
-        ),
-        Positioned(
-          right: 0.0,
-          top: 0.0,
-          bottom: 0.0,
-          child: Container(
-            color: AppColors.black80,
-            child: Icon(
-              Icons.arrow_right,
-              color: Colors.white,
-              size: 32.0,
-            ),
-          ),
-        ),
+            bottom: 0.0,
+            left: 0.0,
+            right: 0.0,
+            child: StreamBuilder(
+              stream: _bloc.getStream,
+              builder: (context, snapshot) {
+                return Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children:
+                      _getListIndicator(_listDiscoverItem.length, snapshot.data),
+                );
+              }
+            ))
       ],
     );
   }
@@ -88,5 +85,26 @@ class DiscoveryView extends StatelessWidget {
 
   void selectItem(String id) {
     //Navigate to detail page
+  }
+
+  List<Widget> _getListIndicator(int count, currentIndex) {
+    List<Widget> list = List();
+    for (int i = 0; i < count; i++) {
+      list.add(_indicatorItem(i == currentIndex));
+    }
+    return list;
+  }
+
+  Widget _indicatorItem(isSelected) {
+    return Container(
+      width: 8.0,
+      height: 8.0,
+      margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
+      decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: isSelected
+              ? AppColors.indicatorColor
+              : AppColors.black80),
+    );
   }
 }

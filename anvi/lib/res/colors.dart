@@ -7,4 +7,5 @@ class AppColors{
   static const Color appbarIconColor = Colors.white;
   static const Color transparent = Colors.transparent;
   static const Color black80 = Colors.black54;
+  static const Color indicatorColor = Colors.white;
 }

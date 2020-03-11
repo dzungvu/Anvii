@@ -1,6 +1,4 @@
 import 'package:anvi/res/colors.dart';
-import 'package:anvi/src/blocs/tab_bloc.dart';
-import 'package:anvi/src/ui/custom_views/app_bar_home.dart';
 import 'package:anvi/src/ui/screens/bookmark_screen.dart';
 import 'package:anvi/src/ui/screens/home_screen.dart';
 import 'package:anvi/src/ui/screens/setting_screen.dart';
@@ -21,7 +19,6 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
-  final TabBloc bloc = TabBloc();
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
