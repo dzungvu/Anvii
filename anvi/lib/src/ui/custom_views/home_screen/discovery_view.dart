@@ -35,13 +35,10 @@ class DiscoveryView extends StatelessWidget {
               left: Dimens.safeAreaDistance, right: Dimens.safeAreaDistance),
           child: CarouselSlider.builder(
             aspectRatio: 3 / 1,
-            autoPlay: true,
+            autoPlay: false,
             reverse: false,
             initialPage: 0,
-            viewportFraction: 0.9,
-            pauseAutoPlayOnTouch: Duration(seconds: 5),
-            autoPlayInterval: Duration(seconds: 3),
-            autoPlayAnimationDuration: Duration(milliseconds: 300),
+            viewportFraction: 0.6,
             itemCount: _listDiscoverItem.length,
             itemBuilder: (context, index) =>
                 getItemView(context, _listDiscoverItem[index]),
