@@ -12,27 +12,32 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     for (int i = 0; i < 10; i++) {
       infos.add(BaseInfo(
-          thumbnailUrl:
-              'https://f0.pngfuel.com/png/666/119/male-anime-character-with-headphones-png-clip-art-thumbnail.png',
+          thumbnailUrl: 'https://i.redd.it/cm7brirmz8921.jpg',
           authorName: 'Shino ABe',
           animeName: 'Oto beta version run crash $i',
           status: 0));
     }
 
     return Scaffold(
-        appBar: AppBarHome(title: 'Home', onSearchPress: () => {}),
-        body: Container(
-          color: AppColors.primaryColor,
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                DiscoveryView(),
-                PopularView(infos: infos),
-              ],
-            ),
-          ),
-        ));
+      appBar: AppBarHome(title: 'Home', onSearchPress: () => {}),
+      body: Container(
+        color: AppColors.primaryColor,
+        child: ListView.builder(
+          itemBuilder: (context, index) => _getItemAt(index),
+          itemCount: 4,
+        ),
+      ),
+    );
+  }
+
+  Widget _getItemAt(int index) {
+    switch (index) {
+      case 0:
+        return DiscoveryView();
+      case 1:
+        return PopularView(infos: infos);
+      default:
+        return Container();
+    }
   }
 }

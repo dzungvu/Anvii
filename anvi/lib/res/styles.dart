@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 
 class AppStyle{
   static const MAIN_MOUDLE_TITLE = TextStyle(
-    color: AppColors.black,
+    color: AppColors.moudleItemTitle,
     fontWeight: FontWeight.bold,
-    fontSize: Dimens.itemTextLarge,
+    fontSize: Dimens.itemTextTitle,
   );
 }

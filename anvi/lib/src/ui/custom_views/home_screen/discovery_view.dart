@@ -1,5 +1,6 @@
 import 'package:anvi/res/colors.dart';
 import 'package:anvi/res/dimens.dart';
+import 'package:anvi/res/styles.dart';
 import 'package:anvi/src/blocs/discovery_indicator_bloc.dart';
 import 'package:anvi/src/models/discovery_item.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -28,37 +29,53 @@ class DiscoveryView extends StatelessWidget {
         id: '3',
         imageUrl:
             'https://d2jcw5q7j4vmo4.cloudfront.net/ZVSDLK0DIT3uzOGY5B2-mNaTbK_9SE7nswGy2oDTuF2zNPzi6_dTNoxVDopdabh7tQ=w1440-h620'));
-    return Stack(
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Container(
-          margin: EdgeInsets.only(
-              left: Dimens.safeAreaDistance, right: Dimens.safeAreaDistance),
-          child: CarouselSlider.builder(
-            aspectRatio: 3 / 1,
-            autoPlay: false,
-            reverse: false,
-            initialPage: 0,
-            viewportFraction: 0.6,
-            itemCount: _listDiscoverItem.length,
-            itemBuilder: (context, index) =>
-                getItemView(context, _listDiscoverItem[index]),
-            onPageChanged: (index) => _bloc.selectItem(index),
+          margin: EdgeInsets.only(left: Dimens.safeAreaDistance),
+          child: Text(
+            'Discovery',
+            style: AppStyle.MAIN_MOUDLE_TITLE,
           ),
         ),
-        Positioned(
-            bottom: 0.0,
-            left: 0.0,
-            right: 0.0,
-            child: StreamBuilder(
-              stream: _bloc.getStream,
-              builder: (context, snapshot) {
-                return Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children:
-                      _getListIndicator(_listDiscoverItem.length, snapshot.data),
-                );
-              }
-            ))
+        SizedBox(
+          height: Dimens.marginMoudleTitle,
+        ),
+        Stack(
+          children: <Widget>[
+            Container(
+              margin: EdgeInsets.only(
+                  left: Dimens.safeAreaDistance,
+                  right: Dimens.safeAreaDistance),
+              child: CarouselSlider.builder(
+                aspectRatio: 3 / 1,
+                autoPlay: false,
+                reverse: false,
+                initialPage: 0,
+                viewportFraction: 0.6,
+                itemCount: _listDiscoverItem.length,
+                itemBuilder: (context, index) =>
+                    getItemView(context, _listDiscoverItem[index]),
+                onPageChanged: (index) => _bloc.selectItem(index),
+              ),
+            ),
+            Positioned(
+                bottom: 0.0,
+                left: 0.0,
+                right: 0.0,
+                child: StreamBuilder(
+                    stream: _bloc.getStream,
+                    builder: (context, snapshot) {
+                      return Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: _getListIndicator(
+                            _listDiscoverItem.length, snapshot.data),
+                      );
+                    }))
+          ],
+        ),
       ],
     );
   }
@@ -99,9 +116,7 @@ class DiscoveryView extends StatelessWidget {
       margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
       decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: isSelected
-              ? AppColors.indicatorColor
-              : AppColors.black80),
+          color: isSelected ? AppColors.indicatorColor : AppColors.black80),
     );
   }
 }

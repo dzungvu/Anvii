@@ -6,4 +6,6 @@ class Dimens{
   static const itemTextLarge = 12.0;
   static const itemTextSmall = 10.0;
   static const itemTextMedium = 8.0;
+  static const itemTextTitle = 17.0;
+  static const marginMoudleTitle = 4.0;
 }

@@ -22,7 +22,12 @@ class PopularItemView extends StatelessWidget {
         children: <Widget>[
           ClipRRect(
             borderRadius: BorderRadius.circular(Dimens.cornerMedium),
-            child: Image.network(info.thumbnailUrl),
+            child: Image.network(
+              info.thumbnailUrl,
+              width: 150.0,
+              height: 180.0,
+              fit: BoxFit.fill,
+            ),
           ),
           SizedBox(
             height: 4,

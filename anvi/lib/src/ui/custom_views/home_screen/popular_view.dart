@@ -1,3 +1,4 @@
+import 'package:anvi/res/dimens.dart';
 import 'package:anvi/res/styles.dart';
 import 'package:anvi/src/models/base_info.dart';
 import 'package:anvi/src/ui/items/popular_item.dart';
@@ -9,10 +10,15 @@ class PopularView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Text(
-          'POPULAR',
-          style: AppStyle.MAIN_MOUDLE_TITLE,
+        Container(
+          margin: EdgeInsets.only(left: Dimens.safeAreaDistance),
+          child: Text(
+            'Popular',
+            style: AppStyle.MAIN_MOUDLE_TITLE,
+          ),
         ),
         SizedBox(
           height: 4,
