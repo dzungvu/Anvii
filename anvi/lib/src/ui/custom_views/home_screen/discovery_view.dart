@@ -51,7 +51,7 @@ class DiscoveryView extends StatelessWidget {
                   right: Dimens.safeAreaDistance),
               child: CarouselSlider.builder(
                 aspectRatio: 3 / 1,
-                autoPlay: false,
+                autoPlay: true,
                 reverse: false,
                 initialPage: 0,
                 viewportFraction: 0.6,

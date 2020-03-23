@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
-class AppColors{
-  static const Color primaryColor = Colors.black;
+class AppColors {
+  static const Color loginbg = Color(0xFFE7E7EC);
+
+  static const Color primaryColor = Color(0xFFFA7906);
   static const Color accentColor = Colors.green;
   static const Color appbarTextColor = Colors.white;
   static const Color appbarIconColor = Colors.white;
@@ -13,5 +15,5 @@ class AppColors{
 
   static const Color black = Colors.black;
   static const Color lightBlack = Color.fromARGB(70, 70, 77, 1);
-
+  static const Color white = Colors.white;
 }

@@ -11,7 +11,7 @@ class PopularItemView extends StatelessWidget {
     return Container(
       margin: EdgeInsets.only(left: Dimens.safeAreaDistance),
       height: 200.0,
-      width: 150.0,
+      width: 200.0,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(Dimens.cornerMedium),
         color: AppColors.bgItem,
@@ -24,7 +24,7 @@ class PopularItemView extends StatelessWidget {
             borderRadius: BorderRadius.circular(Dimens.cornerMedium),
             child: Image.network(
               info.thumbnailUrl,
-              width: 150.0,
+              width: MediaQuery.of(context).size.width,
               height: 180.0,
               fit: BoxFit.fill,
             ),
