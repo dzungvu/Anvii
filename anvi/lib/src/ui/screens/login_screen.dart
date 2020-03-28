@@ -1,12 +1,14 @@
 import 'package:anvi/res/colors.dart';
 import 'package:anvi/res/dimens.dart';
 import 'package:anvi/res/styles.dart';
+import 'package:anvi/src/ui/custom_views/custom_textfield.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Container(
         decoration: BoxDecoration(
             image: DecorationImage(
@@ -63,16 +65,7 @@ class LoginScreen extends StatelessWidget {
                         right: Dimens.safeAreaDistance,
                         top: Dimens.marginGroupViewLarge,
                       ),
-                      child: TextField(
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                            borderRadius:
-                                BorderRadius.circular(Dimens.borderInputLarge),
-                          ),
-                          fillColor: AppColors.loginbg,
-                          hintText: 'Username',
-                        ),
-                      ),
+                      child: CustomTextField(hintText: 'Username',),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(
@@ -80,16 +73,7 @@ class LoginScreen extends StatelessWidget {
                         right: Dimens.safeAreaDistance,
                         top: Dimens.safeAreaDistance,
                       ),
-                      child: TextField(
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                            borderRadius:
-                                BorderRadius.circular(Dimens.borderInputLarge),
-                          ),
-                          fillColor: AppColors.loginbg,
-                          hintText: 'Password',
-                        ),
-                      ),
+                      child: CustomTextField(hintText: 'Password'),
                     ),
                     Align(
                       alignment: Alignment.centerRight,
@@ -151,14 +135,20 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
             SizedBox(height: Dimens.marginGroupView),
-            RichText(
-              text:
-                  TextSpan(style: AppStyle.REGISTER_TEXT, children: <TextSpan>[
-                TextSpan(text: 'Don\'t have an account? '),
-                TextSpan(
-                    text: 'Register now',
-                    style: TextStyle(color: AppColors.primaryColor))
-              ]),
+            GestureDetector(
+              onTap: () {
+                Navigator.of(context).pushNamed('/register');
+              },
+              child: RichText(
+                text: TextSpan(
+                    style: AppStyle.REGISTER_TEXT,
+                    children: <TextSpan>[
+                      TextSpan(text: 'Don\'t have an account? '),
+                      TextSpan(
+                          text: 'Register now',
+                          style: TextStyle(color: AppColors.primaryColor))
+                    ]),
+              ),
             ),
             SizedBox(height: Dimens.marginGroupView),
           ],
