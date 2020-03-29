@@ -6,7 +6,7 @@ class Dimens{
   static const marginGroupView = 24.0;
   static const marginGroupViewLarge = 32.0;
 
-  static const textfieldHeigh = 0.8;
+  static const textfieldHeigh = 0.7;
 
   static const safeAreaItem = 4.0;
   static const cornerMedium = 8.0;

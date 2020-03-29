@@ -3,7 +3,7 @@ import 'package:anvi/res/dimens.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextField extends TextField {
-  String hintText;
+  final String hintText;
 
   CustomTextField({Key key, @required this.hintText}) : super(key: key);
 
