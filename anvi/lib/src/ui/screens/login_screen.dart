@@ -2,6 +2,7 @@ import 'package:anvi/res/colors.dart';
 import 'package:anvi/res/dimens.dart';
 import 'package:anvi/res/styles.dart';
 import 'package:anvi/src/ui/custom_views/custom_textfield.dart';
+import 'package:anvi/src/utils/sign_in.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -116,14 +117,22 @@ class LoginScreen extends StatelessWidget {
                         style: AppStyle.REGISTER_TEXT,
                       ),
                       SizedBox(
-                        height: Dimens.safeAreaDistance,
+                        height: Dimens.safeAreaItem,
                       ),
                       Row(
+                        mainAxisSize: MainAxisSize.min,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          Image(
-                            image: AssetImage('lib/res/assets/google.png'),
-                            height: 32.0,
+                          FlatButton(
+                            onPressed: () {
+                              signInWithGoogle().whenComplete(() {
+                                Navigator.of(context).pushNamed('/tabbar');
+                              });
+                            },
+                            child: Image.asset(
+                              'lib/res/assets/google.png',
+                              height: 32.0,
+                            ),
                           ),
                           SizedBox(
                             width: Dimens.marginGroupView,
