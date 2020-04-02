@@ -1,3 +1,4 @@
+import 'package:anvi/src/utils/my_share_preference.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
@@ -23,10 +24,14 @@ Future<String> signInWithGoogle() async {
   final FirebaseUser currentUser = await _auth.currentUser();
   assert(user.uid == currentUser.uid);
 
+  MySharePreference _mSPrefs = MySharePreference.getInstance();
+  _mSPrefs.setUserDisplayName(user.displayName);
+  _mSPrefs.setEmail(user.email);
+  _mSPrefs.setAvatarUrl(user.photoUrl);
+
   print('username: ${user.displayName}');
   print('email: ${user.email}');
   print('photo: ${user.photoUrl}');
-  print('phone: ${user.phoneNumber}');
 
   return 'Sign in with google successed $user';
 }
