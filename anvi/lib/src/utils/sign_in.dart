@@ -23,11 +23,16 @@ Future<String> signInWithGoogle() async {
   final FirebaseUser currentUser = await _auth.currentUser();
   assert(user.uid == currentUser.uid);
 
+  print('username: ${user.displayName}');
+  print('email: ${user.email}');
+  print('photo: ${user.photoUrl}');
+  print('phone: ${user.phoneNumber}');
+
   return 'Sign in with google successed $user';
 }
 
 void signOutWithGoogle() async {
   await googleSignIn.signOut();
 
-  print ('User sign out');
+  print('User sign out');
 }

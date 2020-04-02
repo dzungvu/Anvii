@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "827852001909",
+    "firebase_url": "https://anvii-f8766.firebaseio.com",
+    "project_id": "anvii-f8766",
+    "storage_bucket": "anvii-f8766.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:827852001909:android:f269aabe597bc8367c9e3c",
+        "android_client_info": {
+          "package_name": "com.dzungvu.anvii"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "827852001909-uuqro1ktpob653grsgi8qahvdtloijsd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dzungvu.anvii",
+            "certificate_hash": "6eaadbbe3de9bf1e74893e6948e6595356882d7b"
+          }
+        },
+        {
+          "client_id": "827852001909-0f048vd5lkmpm9sfn6jitpf07eoj5hrr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPCWhD3cYOKDFKUzzKPlJb4p7l1j1OTgg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "827852001909-0f048vd5lkmpm9sfn6jitpf07eoj5hrr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
