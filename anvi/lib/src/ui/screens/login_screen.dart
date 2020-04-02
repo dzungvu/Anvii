@@ -1,13 +1,35 @@
+import 'dart:convert';
+
+import 'package:http/http.dart' as http;
+
 import 'package:anvi/res/colors.dart';
 import 'package:anvi/res/dimens.dart';
 import 'package:anvi/res/styles.dart';
 import 'package:anvi/src/ui/custom_views/custom_textfield.dart';
 import 'package:anvi/src/utils/sign_in.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 
 class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    void _saveUser(FacebookLoginResult result) async {
+      final token = result.accessToken.token;
+      final graphResponse = await http.get(
+          'https://graph.facebook.com/v2.12/me?fields=name,first_name,last_name,email,picture&access_token=${token}');
+      final profile = jsonDecode(graphResponse.body);
+      print (profile);
+      
+    }
+
+    void _showLoggedInUI() {
+      Navigator.of(context).pushNamed('/tabbar');
+    }
+
+    void _showCancelledMessage() {}
+
+    void _showErrorOnUI(String error) {}
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
@@ -137,10 +159,27 @@ class LoginScreen extends StatelessWidget {
                           SizedBox(
                             width: Dimens.marginGroupView,
                           ),
-                          Image(
-                            image: AssetImage('lib/res/assets/facebook.png'),
-                            height: 32.0,
-                          )
+                          FlatButton(
+                            onPressed: () async {
+                              final result = await initializeFacebookLogin();
+                              switch (result.status) {
+                                case FacebookLoginStatus.loggedIn:
+                                  _saveUser(result);
+                                  _showLoggedInUI();
+                                  break;
+                                case FacebookLoginStatus.cancelledByUser:
+                                  _showCancelledMessage();
+                                  break;
+                                case FacebookLoginStatus.error:
+                                  _showErrorOnUI(result.errorMessage);
+                                  break;
+                              }
+                            },
+                            child: Image.asset(
+                              'lib/res/assets/facebook.png',
+                              height: 32.0,
+                            ),
+                          ),
                         ],
                       )
                     ],

@@ -1,5 +1,6 @@
 import 'package:anvi/src/utils/my_share_preference.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -40,4 +41,10 @@ void signOutWithGoogle() async {
   await googleSignIn.signOut();
 
   print('User sign out');
+}
+
+Future<FacebookLoginResult> initializeFacebookLogin() async {
+  final facebookLogin = FacebookLogin();
+  final result = await facebookLogin.logIn(['email', 'public_profile']);
+  return result;
 }
