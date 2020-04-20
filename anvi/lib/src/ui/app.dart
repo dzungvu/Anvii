@@ -1,4 +1,5 @@
 import 'package:anvi/routes.dart';
+import 'package:anvi/src/ui/screens/select_login_method_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:anvi/src/ui/screens/login_screen.dart';
 
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: LoginScreen(),
+        home: SelectLoginMethodScreen(),
         routes: routes,
       ),
     );

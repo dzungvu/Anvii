@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   static const Color loginbg = Color(0xFFE7E7EC);
+  static const Color facebook = Color(0xFF3b5998);
+  static const Color google = Color(0xFFdb4a39);
 
   static const Color primaryColor = Color(0xFFFA7906);
   static const Color accentColor = Colors.green;

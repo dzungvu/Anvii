@@ -3,6 +3,9 @@ class Dimens{
   static const safeAreaDistance = 16.0;
   static const safeAreaSmall = 8.0;
 
+  static const marginMoudleTitle = 4.0;
+  static const marginSmall = 8.0;
+  static const marginCommon = 16.0;
   static const marginGroupView = 24.0;
   static const marginGroupViewLarge = 32.0;
 
@@ -18,10 +21,11 @@ class Dimens{
   static const itemTextTitleLarge = 21.0;
   static const itemTextSubTitleLarge = 13.0;
 
-  static const marginMoudleTitle = 4.0;
-
   static const loginMarginTopContent = 64.0;
   static const textLinkMedium = 15.0;
 
   static const borderInputLarge = 30.0;
+  static const borderInputMedium = 15.0;
+
+  static const buttonHeightLarge = 50.0;
 }

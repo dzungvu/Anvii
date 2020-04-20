@@ -15,6 +15,7 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     void _saveUser(FacebookLoginResult result) async {
       final token = result.accessToken.token;
+      print (token);
       final graphResponse = await http.get(
           'https://graph.facebook.com/v2.12/me?fields=name,first_name,last_name,email,picture&access_token=${token}');
       final profile = jsonDecode(graphResponse.body);
