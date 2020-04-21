@@ -10,6 +10,7 @@ class RegisterScreen extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
+          color: AppColors.loginbg,
           height: MediaQuery.of(context).size.height,
           padding: EdgeInsets.only(
               left: Dimens.safeAreaDistance, right: Dimens.safeAreaDistance),
@@ -21,7 +22,7 @@ class RegisterScreen extends StatelessWidget {
               children: <Widget>[
                 IconButton(
                   icon: Icon(
-                    Icons.arrow_back,
+                    Icons.navigate_before,
                     color: AppColors.iconColorWithoutAppbar,
                   ),
                   onPressed: () {
@@ -41,46 +42,61 @@ class RegisterScreen extends StatelessWidget {
                       color: AppColors.lightBlack,
                       fontSize: Dimens.itemTextSubTitleLarge),
                 ),
+                SizedBox(
+                  height: Dimens.safeAreaDistance,
+                ),
+                CustomTextField2(
+                  hintText: 'Email',
+                  keyboard: TextInputType.emailAddress,
+                ),
+                SizedBox(
+                  height: Dimens.safeAreaDistance,
+                ),
+                CustomTextField2(
+                  hintText: 'Username',
+                  keyboard: TextInputType.text,
+                ),
+                SizedBox(
+                  height: Dimens.safeAreaDistance,
+                ),
+                CustomTextField2(
+                  hintText: 'Password',
+                  keyboard: TextInputType.visiblePassword,
+                  isSecure: true,
+                ),
+                SizedBox(
+                  height: Dimens.safeAreaDistance,
+                ),
+                CustomTextField2(
+                  hintText: 'Confirm Password',
+                  keyboard: TextInputType.visiblePassword,
+                  isSecure: true,
+                ),
+                SizedBox(
+                  height: Dimens.marginGroupView,
+                ),
                 Align(
                   alignment: Alignment.topCenter,
-                  child: Image(
-                    image: AssetImage('lib/res/assets/kks.jpg'),
-                    width: 100.0,
-                  ),
-                ),
-                SizedBox(
-                  height: Dimens.safeAreaDistance,
-                ),
-                CustomTextField(hintText: 'Username'),
-                SizedBox(
-                  height: Dimens.safeAreaDistance,
-                ),
-                CustomTextField(hintText: 'Password'),
-                SizedBox(
-                  height: Dimens.safeAreaDistance,
-                ),
-                CustomTextField(hintText: 'Confirm Password'),
-                SizedBox(
-                  height: Dimens.safeAreaDistance,
-                ),
-                Align(
-                  alignment: Alignment.topCenter,
-                  child: RaisedButton(
-                    color: AppColors.primaryColor,
-                    onPressed: () {},
-                    shape: RoundedRectangleBorder(
-                        borderRadius:
-                            BorderRadius.circular(Dimens.borderInputLarge),
-                        side: BorderSide(color: AppColors.primaryColor)),
-                    child: Padding(
-                      padding: const EdgeInsets.only(
-                          left: Dimens.safeAreaDistance,
-                          right: Dimens.safeAreaDistance),
-                      child: Text(
-                        'Sign up',
-                        style: TextStyle(
-                            color: AppColors.white,
-                            fontSize: Dimens.itemTextTitle),
+                  child: ButtonTheme(
+                    minWidth: double.infinity,
+                    height: Dimens.buttonHeightLarge,
+                    child: RaisedButton(
+                      color: AppColors.primaryColor,
+                      onPressed: () {},
+                      shape: RoundedRectangleBorder(
+                          borderRadius:
+                              BorderRadius.circular(Dimens.borderInputLarge),
+                          side: BorderSide(color: AppColors.primaryColor)),
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                            left: Dimens.safeAreaDistance,
+                            right: Dimens.safeAreaDistance),
+                        child: Text(
+                          'Sign up',
+                          style: TextStyle(
+                              color: AppColors.white,
+                              fontSize: Dimens.itemTextTitle),
+                        ),
                       ),
                     ),
                   ),
@@ -114,7 +130,9 @@ class RegisterScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: Dimens.marginGroupView,)
+                SizedBox(
+                  height: Dimens.marginGroupView,
+                )
               ],
             ),
           ),

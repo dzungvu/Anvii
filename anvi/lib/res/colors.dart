@@ -17,6 +17,6 @@ class AppColors {
   static const Color moudleItemTitle = Colors.white;
 
   static const Color black = Colors.black;
-  static const Color lightBlack = Color.fromARGB(70, 70, 77, 1);
+  static const Color lightBlack = Color.fromARGB(120, 70, 77, 1);
   static const Color white = Colors.white;
 }

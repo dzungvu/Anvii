@@ -1,36 +1,12 @@
-import 'dart:convert';
-
-import 'package:http/http.dart' as http;
-
 import 'package:anvi/res/colors.dart';
 import 'package:anvi/res/dimens.dart';
 import 'package:anvi/res/styles.dart';
 import 'package:anvi/src/ui/custom_views/custom_textfield.dart';
-import 'package:anvi/src/utils/sign_in.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 
 class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    void _saveUser(FacebookLoginResult result) async {
-      final token = result.accessToken.token;
-      print (token);
-      final graphResponse = await http.get(
-          'https://graph.facebook.com/v2.12/me?fields=name,first_name,last_name,email,picture&access_token=${token}');
-      final profile = jsonDecode(graphResponse.body);
-      print (profile);
-      
-    }
-
-    void _showLoggedInUI() {
-      Navigator.of(context).pushNamed('/tabbar');
-    }
-
-    void _showCancelledMessage() {}
-
-    void _showErrorOnUI(String error) {}
-
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
@@ -47,7 +23,19 @@ class LoginScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               SizedBox(
-                height: Dimens.loginMarginTopContent,
+                height: Dimens.safeAreaDistance,
+              ),
+              Align(
+                alignment: Alignment.topLeft,
+                child: FlatButton.icon(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    icon: Icon(Icons.navigate_before),
+                    label: Text('Back')),
+              ),
+              SizedBox(
+                height: Dimens.marginGroupViewLarge,
               ),
               Align(
                 alignment: Alignment.centerLeft,
@@ -112,77 +100,35 @@ class LoginScreen extends StatelessWidget {
                           child: Text('Forgot password?'),
                         ),
                       ),
-                      RaisedButton(
-                        color: AppColors.primaryColor,
-                        onPressed: () =>
-                            Navigator.pushNamed(context, '/tabbar'),
-                        shape: RoundedRectangleBorder(
-                            borderRadius:
-                                BorderRadius.circular(Dimens.borderInputLarge),
-                            side: BorderSide(color: AppColors.primaryColor)),
-                        child: Padding(
-                          padding: const EdgeInsets.only(
-                              left: Dimens.safeAreaDistance,
-                              right: Dimens.safeAreaDistance),
-                          child: Text(
-                            'Login',
-                            style: TextStyle(
-                                color: AppColors.white,
-                                fontSize: Dimens.itemTextTitle),
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(Dimens.safeAreaDistance,
+                            Dimens.marginGroupView, Dimens.safeAreaDistance, 0),
+                        child: ButtonTheme(
+                          minWidth: MediaQuery.of(context).size.width,
+                          height: Dimens.buttonHeightLarge,
+                          child: RaisedButton(
+                            color: AppColors.primaryColor,
+                            onPressed: () =>
+                                Navigator.pushNamed(context, '/tabbar'),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(
+                                    Dimens.borderInputLarge),
+                                side:
+                                    BorderSide(color: AppColors.primaryColor)),
+                            child: Padding(
+                              padding: const EdgeInsets.only(
+                                  left: Dimens.safeAreaDistance,
+                                  right: Dimens.safeAreaDistance),
+                              child: Text(
+                                'Login',
+                                style: TextStyle(
+                                    color: AppColors.white,
+                                    fontSize: Dimens.itemTextTitle),
+                              ),
+                            ),
                           ),
                         ),
                       ),
-                      SizedBox(
-                        height: Dimens.marginGroupView,
-                      ),
-                      Text(
-                        'Or sign in using',
-                        style: AppStyle.REGISTER_TEXT,
-                      ),
-                      SizedBox(
-                        height: Dimens.safeAreaItem,
-                      ),
-                      Row(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          FlatButton(
-                            onPressed: () {
-                              signInWithGoogle().whenComplete(() {
-                                Navigator.of(context).pushNamed('/tabbar');
-                              });
-                            },
-                            child: Image.asset(
-                              'lib/res/assets/google.png',
-                              height: 32.0,
-                            ),
-                          ),
-                          SizedBox(
-                            width: Dimens.marginGroupView,
-                          ),
-                          FlatButton(
-                            onPressed: () async {
-                              final result = await initializeFacebookLogin();
-                              switch (result.status) {
-                                case FacebookLoginStatus.loggedIn:
-                                  _saveUser(result);
-                                  _showLoggedInUI();
-                                  break;
-                                case FacebookLoginStatus.cancelledByUser:
-                                  _showCancelledMessage();
-                                  break;
-                                case FacebookLoginStatus.error:
-                                  _showErrorOnUI(result.errorMessage);
-                                  break;
-                              }
-                            },
-                            child: Image.asset(
-                              'lib/res/assets/facebook.png',
-                              height: 32.0,
-                            ),
-                          ),
-                        ],
-                      )
                     ],
                   ),
                 ),

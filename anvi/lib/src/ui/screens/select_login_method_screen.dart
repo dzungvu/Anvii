@@ -54,7 +54,7 @@ class SelectLoginMethodScreen extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: Dimens.marginGroupView,
+              height: Dimens.marginGroupViewLarge,
             ),
             ButtonTheme(
               minWidth: double.infinity,
@@ -94,7 +94,7 @@ class SelectLoginMethodScreen extends StatelessWidget {
                   children: [
                     Image(
                       image: AssetImage('lib/res/assets/facebook.png'),
-                      height: 24.0,
+                      height: 16.0,
                       color: AppColors.white,
                     ),
                     SizedBox(
@@ -144,7 +144,7 @@ class SelectLoginMethodScreen extends StatelessWidget {
                   children: [
                     Image(
                       image: AssetImage('lib/res/assets/google.png'),
-                      height: 24.0,
+                      height: 16.0,
                       color: AppColors.white,
                     ),
                     SizedBox(
@@ -183,7 +183,7 @@ class SelectLoginMethodScreen extends StatelessWidget {
                             fontWeight: FontWeight.normal,
                           )),
                       TextSpan(
-                        text: 'Register now',
+                        text: 'Sign up now',
                         style: TextStyle(
                           color: AppColors.primaryColor,
                           fontSize: Dimens.itemTextTitle,
