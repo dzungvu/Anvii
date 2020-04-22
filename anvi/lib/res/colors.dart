@@ -6,6 +6,7 @@ class AppColors {
   static const Color google = Color(0xFFdb4a39);
 
   static const Color primaryColor = Color(0xFFFA7906);
+  static const Color primaryColorLight = Color(0xFFF49A49);
   static const Color accentColor = Colors.green;
   static const Color appbarTextColor = Colors.white;
   static const Color appbarIconColor = Colors.white;

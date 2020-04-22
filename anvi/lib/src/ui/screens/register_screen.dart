@@ -82,7 +82,9 @@ class RegisterScreen extends StatelessWidget {
                     height: Dimens.buttonHeightLarge,
                     child: RaisedButton(
                       color: AppColors.primaryColor,
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).pushNamed('/additionInfo');
+                      },
                       shape: RoundedRectangleBorder(
                           borderRadius:
                               BorderRadius.circular(Dimens.borderInputLarge),
