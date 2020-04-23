@@ -16,6 +16,7 @@ class AppColors {
   static const Color indicatorColor = Colors.white;
   static const Color bgItem = Colors.white;
   static const Color moudleItemTitle = Colors.white;
+  static const Color shadow = Color(0x30000000);
 
   static const Color black = Colors.black;
   static const Color lightBlack = Color.fromARGB(120, 70, 77, 1);
