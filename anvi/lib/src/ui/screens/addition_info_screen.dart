@@ -1,12 +1,23 @@
 import 'package:anvi/res/colors.dart';
 import 'package:anvi/res/dimens.dart';
+import 'package:anvi/src/blocs/select_image_bloc.dart';
 import 'package:anvi/src/ui/custom_views/age_picker.dart';
+import 'package:anvi/src/ui/custom_views/dialogs/select_image_resource_dialog.dart';
 import 'package:anvi/src/ui/custom_views/gender_picker.dart';
 import 'package:flutter/material.dart';
 
 class AdditionInfoScreen extends StatelessWidget {
+  void _updateInfo() {
+    print('Update info');
+  }
+
+  void _skip() {
+    print('Skip');
+  }
+
   @override
   Widget build(BuildContext context) {
+    var avatarBloc = SelectImageBloc();
     return Scaffold(
       body: Builder(
         builder: (context) => Container(
@@ -32,13 +43,34 @@ class AdditionInfoScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       ClipOval(
-                        child: Container(
-                          width: 64.0,
-                          height: 64.0,
-                          color: AppColors.white,
-                          child: Icon(
-                            Icons.add_a_photo,
-                            color: AppColors.primaryColor,
+                        child: GestureDetector(
+                          onTap: () {
+                            print('select avatar');
+                            showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return SelectImageResourceDialog(
+                                    context, avatarBloc);
+                              },
+                            );
+                          },
+                          child: Container(
+                            width: 64.0,
+                            height: 64.0,
+                            color: AppColors.white,
+                            child: StreamBuilder(
+                                stream: avatarBloc.getStream,
+                                builder: (context, snapshot) {
+                                  return snapshot.data == null
+                                      ? Icon(
+                                          Icons.add_a_photo,
+                                          color: AppColors.primaryColor,
+                                        )
+                                      : Image.file(
+                                          snapshot.data,
+                                          fit: BoxFit.fill,
+                                        );
+                                }),
                           ),
                         ),
                       ),
@@ -58,7 +90,7 @@ class AdditionInfoScreen extends StatelessWidget {
                 decoration: BoxDecoration(
                     borderRadius:
                         BorderRadius.circular(Dimens.borderInputMedium),
-                    color: AppColors.loginbg,
+                    color: AppColors.darkWhite,
                     boxShadow: [
                       BoxShadow(
                         color: AppColors.shadow,
@@ -102,7 +134,6 @@ class AdditionInfoScreen extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(
-                  bottom: Dimens.marginGroupView,
                   left: Dimens.marginCommon,
                   right: Dimens.marginCommon,
                 ),
@@ -115,7 +146,9 @@ class AdditionInfoScreen extends StatelessWidget {
                           BorderRadius.circular(Dimens.borderInputLarge),
                     ),
                     color: AppColors.primaryColor,
-                    onPressed: () {},
+                    onPressed: () {
+                      _updateInfo();
+                    },
                     child: Text(
                       'Update',
                       style: TextStyle(
@@ -124,7 +157,25 @@ class AdditionInfoScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-              )
+              ),
+              GestureDetector(
+                onTap: () {
+                  _skip();
+                },
+                child: Padding(
+                  padding: EdgeInsets.only(
+                    bottom: Dimens.marginGroupViewLarge,
+                    top: Dimens.marginCommon,
+                  ),
+                  child: Text(
+                    'Skip',
+                    style: TextStyle(
+                      color: AppColors.black80,
+                      decoration: TextDecoration.underline,
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),

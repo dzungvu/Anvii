@@ -28,4 +28,5 @@ class Dimens{
   static const borderInputMedium = 15.0;
 
   static const buttonHeightLarge = 50.0;
+  static const buttonHeightMedium = 35.0;
 }
