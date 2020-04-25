@@ -35,4 +35,6 @@ class Dimens{
 
   static const tagTextSize = 12.0;
   static const bigTitle = 30.0;
+
+  static const thumbnailSmall = 48.0;
 }

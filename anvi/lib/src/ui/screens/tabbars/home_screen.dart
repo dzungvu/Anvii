@@ -1,8 +1,9 @@
 import 'package:anvi/res/colors.dart';
 import 'package:anvi/src/models/base_info.dart';
-import 'package:anvi/src/ui/custom_views/app_bar_home.dart';
 import 'package:anvi/src/ui/custom_views/home_screen/discovery_view.dart';
 import 'package:anvi/src/ui/custom_views/home_screen/popular_view.dart';
+import 'package:anvi/src/ui/custom_views/home_screen/film_view.dart';
+import 'package:anvi/src/utils/sample_data.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -10,14 +11,6 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    for (int i = 0; i < 10; i++) {
-      infos.add(BaseInfo(
-          thumbnailUrl: 'https://i.redd.it/cm7brirmz8921.jpg',
-          authorName: 'Shino ABe',
-          animeName: 'Oto beta version run crash $i',
-          status: 0));
-    }
-
     return Scaffold(
       body: Container(
         color: AppColors.white,
@@ -34,7 +27,13 @@ class HomeScreen extends StatelessWidget {
       case 0:
         return DiscoveryView();
       case 1:
-        return PopularView(infos: infos);
+        return PopularView(
+          infos: SampleData.getBaseInfoList(),
+        );
+      case 2:
+        return FilmView(
+          infos: SampleData.getFilmList(),
+        );
       default:
         return Container();
     }

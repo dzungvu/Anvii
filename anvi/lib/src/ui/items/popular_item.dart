@@ -9,22 +9,30 @@ class PopularItemView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(left: Dimens.safeAreaDistance),
+      margin: EdgeInsets.only(left: Dimens.safeAreaSmall, bottom: Dimens.marginSmall),
       height: 200.0,
-      width: 200.0,
+      width: 150.0,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(Dimens.cornerMedium),
         color: AppColors.bgItem,
+        boxShadow: <BoxShadow>[
+          BoxShadow(
+            color: AppColors.shadow,
+            offset: Offset(4.0, 4.0),
+          )
+        ],
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           ClipRRect(
-            borderRadius: BorderRadius.circular(Dimens.cornerMedium),
+            borderRadius: BorderRadius.circular(
+              Dimens.cornerMedium,
+            ),
             child: Image.network(
               info.thumbnailUrl,
-              width: MediaQuery.of(context).size.width,
+              width: double.infinity,
               height: 180.0,
               fit: BoxFit.fill,
             ),
@@ -34,7 +42,9 @@ class PopularItemView extends StatelessWidget {
           ),
           Container(
             margin: EdgeInsets.only(
-                left: Dimens.safeAreaItem, right: Dimens.safeAreaItem),
+              left: Dimens.safeAreaItem,
+              right: Dimens.safeAreaItem,
+            ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -43,9 +53,10 @@ class PopularItemView extends StatelessWidget {
                   info.animeName,
                   textAlign: TextAlign.start,
                   style: TextStyle(
-                      color: AppColors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: Dimens.itemTextLarge),
+                    color: AppColors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: Dimens.itemTextLarge,
+                  ),
                 ),
                 SizedBox(
                   height: 2,

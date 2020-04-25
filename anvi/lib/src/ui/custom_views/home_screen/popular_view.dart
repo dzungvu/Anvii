@@ -1,3 +1,4 @@
+import 'package:anvi/res/dimens.dart';
 import 'package:anvi/src/models/base_info.dart';
 import 'package:anvi/src/ui/custom_views/titles/moudle_title.dart';
 import 'package:anvi/src/ui/items/popular_item.dart';
@@ -22,13 +23,19 @@ class PopularView extends StatelessWidget {
           height: 4,
         ),
         Container(
-          height: 230,
+          margin: EdgeInsets.symmetric(
+            vertical: Dimens.marginSmall,
+          ),
+          height: 240,
           child: ListView.builder(
             itemCount: infos.length,
             itemBuilder: (context, index) => _getItemAt(context, index),
             scrollDirection: Axis.horizontal,
           ),
         ),
+        // SizedBox(
+        //   height: Dimens.marginSmall,
+        // )
       ],
     );
   }
