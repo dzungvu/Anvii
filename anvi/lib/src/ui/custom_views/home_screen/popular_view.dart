@@ -1,6 +1,5 @@
-import 'package:anvi/res/dimens.dart';
-import 'package:anvi/res/styles.dart';
 import 'package:anvi/src/models/base_info.dart';
+import 'package:anvi/src/ui/custom_views/titles/moudle_title.dart';
 import 'package:anvi/src/ui/items/popular_item.dart';
 import 'package:flutter/material.dart';
 
@@ -13,12 +12,11 @@ class PopularView extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Container(
-          margin: EdgeInsets.only(left: Dimens.safeAreaDistance),
-          child: Text(
-            'Popular',
-            style: AppStyle.MAIN_MOUDLE_TITLE,
-          ),
+        MainMoudleTitle(
+          title: 'Popular',
+          onTapShowAll: () {
+            print('show all');
+          },
         ),
         SizedBox(
           height: 4,

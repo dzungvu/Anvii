@@ -19,9 +19,8 @@ class HomeScreen extends StatelessWidget {
     }
 
     return Scaffold(
-      appBar: AppBarHome(title: 'Home', onSearchPress: () => {}),
       body: Container(
-        color: AppColors.primaryColor,
+        color: AppColors.white,
         child: ListView.builder(
           itemBuilder: (context, index) => _getItemAt(index),
           itemCount: 4,

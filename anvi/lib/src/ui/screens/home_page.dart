@@ -1,6 +1,7 @@
 import 'package:anvi/res/colors.dart';
 import 'package:anvi/src/ui/screens/tabbars/bookmark_screen.dart';
 import 'package:anvi/src/ui/screens/tabbars/home_screen.dart';
+import 'package:anvi/src/ui/screens/tabbars/search_screen.dart';
 import 'package:anvi/src/ui/screens/tabbars/setting_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -8,13 +9,16 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 3,
+      length: 4,
       child: Scaffold(
-        backgroundColor: AppColors.primaryColor,
+        backgroundColor: AppColors.darkWhite,
           bottomNavigationBar: TabBar(
             tabs: [
               Tab(
                 icon: Icon(Icons.home),
+              ),
+              Tab(
+                icon: Icon(Icons.search),
               ),
               Tab(
                 icon: Icon(Icons.bookmark),
@@ -23,13 +27,14 @@ class MyHomePage extends StatelessWidget {
                 icon: Icon(Icons.settings),
               ),
             ],
-            indicatorColor: AppColors.accentColor,
-            labelColor: AppColors.accentColor,
-            unselectedLabelColor: AppColors.appbarIconColor,
+            indicatorColor: AppColors.transparent,
+            labelColor: AppColors.black,
+            unselectedLabelColor: AppColors.white,
           ),
           body: TabBarView(
             children: [
               HomeScreen(),
+              SearchScreen(),
               BookmarkScreen(),
               SettingScreen(),
             ],

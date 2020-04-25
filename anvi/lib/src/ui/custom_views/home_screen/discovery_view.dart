@@ -3,6 +3,8 @@ import 'package:anvi/res/dimens.dart';
 import 'package:anvi/res/styles.dart';
 import 'package:anvi/src/blocs/discovery_indicator_bloc.dart';
 import 'package:anvi/src/models/discovery_item.dart';
+import 'package:anvi/src/ui/custom_views/tags/tags.dart';
+import 'package:anvi/src/ui/custom_views/titles/moudle_title.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
@@ -33,12 +35,14 @@ class DiscoveryView extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Container(
-          margin: EdgeInsets.only(left: Dimens.safeAreaDistance),
-          child: Text(
-            'Discovery',
-            style: AppStyle.MAIN_MOUDLE_TITLE,
-          ),
+        SizedBox(
+          height: Dimens.marginCommon,
+        ),
+        MainMoudleTitle(
+          title: 'Discovery',
+          onTapShowAll: () {
+            print('show all');
+          },
         ),
         SizedBox(
           height: Dimens.marginMoudleTitle,
@@ -46,15 +50,15 @@ class DiscoveryView extends StatelessWidget {
         Stack(
           children: <Widget>[
             Container(
-              margin: EdgeInsets.only(
-                  left: Dimens.safeAreaDistance,
-                  right: Dimens.safeAreaDistance),
+              // margin: EdgeInsets.only(
+              //     left: Dimens.safeAreaDistance,
+              //     right: Dimens.safeAreaDistance),
               child: CarouselSlider.builder(
-                aspectRatio: 3 / 1,
-                autoPlay: true,
+                aspectRatio: 3 / 2,
+                autoPlay: false,
                 reverse: false,
                 initialPage: 0,
-                viewportFraction: 0.6,
+                viewportFraction: 1.0,
                 itemCount: _listDiscoverItem.length,
                 itemBuilder: (context, index) =>
                     getItemView(context, _listDiscoverItem[index]),
@@ -62,14 +66,14 @@ class DiscoveryView extends StatelessWidget {
               ),
             ),
             Positioned(
-                bottom: 0.0,
-                left: 0.0,
+                bottom: Dimens.marginSmall,
+                left: Dimens.marginLarge,
                 right: 0.0,
                 child: StreamBuilder(
                     stream: _bloc.getStream,
                     builder: (context, snapshot) {
                       return Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: _getListIndicator(
                             _listDiscoverItem.length, snapshot.data),
                       );
@@ -88,9 +92,56 @@ class DiscoveryView extends StatelessWidget {
         margin: EdgeInsets.all(8),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(8),
-          child: Image.network(
-            item.imageUrl,
-            fit: BoxFit.fill,
+          child: Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: NetworkImage(item.imageUrl),
+                fit: BoxFit.fill,
+              ),
+            ),
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: Dimens.marginCommon),
+              color: AppColors.blurBackground,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Tags(
+                    tag: 'Discovery',
+                  ),
+                  SizedBox(
+                    height: Dimens.marginSmall,
+                  ),
+                  Text(
+                    'Naruto',
+                    style: TextStyle(
+                      color: AppColors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: Dimens.bigTitle,
+                    ),
+                  ),
+                  Text(
+                    '2010 • 500 Tập • 15.02.2010',
+                    style: TextStyle(
+                        color: AppColors.white,
+                        fontSize: Dimens.itemTextSubTitle,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  Icon(
+                    Icons.star,
+                    color: AppColors.star,
+                    size: 16.0,
+                  ),
+                  Text(
+                    '4.3',
+                    style: TextStyle(
+                      color: AppColors.white,
+                      fontSize: Dimens.itemTextSubTitle,
+                    ),
+                  )
+                ],
+              ),
+            ),
           ),
         ),
       ),
@@ -116,7 +167,9 @@ class DiscoveryView extends StatelessWidget {
       margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
       decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: isSelected ? AppColors.indicatorColor : AppColors.black80),
+          color: isSelected
+              ? AppColors.indicatorSelected
+              : AppColors.indicatorUnselected),
     );
   }
 }

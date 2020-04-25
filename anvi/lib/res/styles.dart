@@ -6,7 +6,7 @@ class AppStyle{
   static const MAIN_MOUDLE_TITLE = TextStyle(
     color: AppColors.moudleItemTitle,
     fontWeight: FontWeight.bold,
-    fontSize: Dimens.itemTextTitle,
+    fontSize: Dimens.mainMoudleTitle,
   );
 
   static const REGISTER_TEXT = TextStyle(

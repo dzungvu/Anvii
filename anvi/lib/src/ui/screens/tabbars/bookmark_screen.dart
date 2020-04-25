@@ -5,7 +5,7 @@ class BookmarkScreen extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: AppColors.primaryColor,
+      color: AppColors.darkWhite,
       child: Center(
         child: Text("Bookmark screen", style: TextStyle(color: Colors.white),),
       ),

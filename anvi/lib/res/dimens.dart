@@ -3,9 +3,12 @@ class Dimens{
   static const safeAreaDistance = 16.0;
   static const safeAreaSmall = 8.0;
 
+  static const mainMoudleTitle = 25.0;
+
   static const marginMoudleTitle = 4.0;
   static const marginSmall = 8.0;
   static const marginCommon = 16.0;
+  static const marginLarge = 20.0;
   static const marginGroupView = 24.0;
   static const marginGroupViewLarge = 32.0;
 
@@ -29,4 +32,7 @@ class Dimens{
 
   static const buttonHeightLarge = 50.0;
   static const buttonHeightMedium = 35.0;
+
+  static const tagTextSize = 12.0;
+  static const bigTitle = 30.0;
 }
