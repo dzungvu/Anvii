@@ -29,7 +29,7 @@ class MyHomePage extends StatelessWidget {
             ],
             indicatorColor: AppColors.transparent,
             labelColor: AppColors.black,
-            unselectedLabelColor: AppColors.white,
+            unselectedLabelColor: AppColors.ddarkWhite,
           ),
           body: TabBarView(
             children: [

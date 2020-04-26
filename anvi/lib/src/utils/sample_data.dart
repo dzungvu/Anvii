@@ -167,6 +167,7 @@ class SampleData {
           shortDes: getListCharacterShortDes()[i],
           listFilm: getFilmList()));
     }
+    return data;
   }
 
   static List<String> getListCharaterName() {
@@ -186,16 +187,16 @@ class SampleData {
 
   static List<String> getListCharaterImage() {
     return [
-      'https://www.anime-planet.com/images/characters/kakashi-hatake-553.jpg?t=1420768931',
-      'https://www.anime-planet.com/images/characters/light-yagami-1339.jpg?t=1587503008',
-      'https://www.anime-planet.com/images/characters/lelouch-lamperouge-1190.jpg?t=1501890872',
-      'https://www.anime-planet.com/images/characters/natsu-dragneel-1415.jpg?t=1423532191',
-      'https://www.anime-planet.com/images/characters/ryuk-1343.jpg?t=1587588405',
-      'https://www.anime-planet.com/images/characters/naruto-uzumaki-87.jpg?t=1545800455',
-      'https://www.anime-planet.com/images/characters/kirito-30045.jpg?t=1553980719',
-      'https://www.anime-planet.com/images/characters/roy-mustang-2014.jpg?t=1579887395',
-      'https://www.anime-planet.com/images/characters/itachi-uchiha-705.jpg?t=1545797917',
-      'https://www.anime-planet.com/images/characters/erza-scarlet-1419.jpg?t=1425438521',
+      'https://i.pinimg.com/originals/f8/eb/c4/f8ebc44b1617f33c629bb882f0f55c9d.png',
+      'https://i.pinimg.com/originals/0b/cd/2c/0bcd2c6d96d670a4105f26f722f4ba16.jpg',
+      'https://qph.fs.quoracdn.net/main-qimg-391028616b3ba2d3dfcf8eb37a4c19d8',
+      'https://buffy.mlpforums.com/monthly_2018_11/IMG_4603.JPG.cdfbe83c7711b349002c6eb02865e19f.JPG',
+      'https://doitbeforeme.com/wp-content/uploads/2019/02/20-best-anime-character-designs-easy-drawing-ideas-for-beginners-2019-1-e1551384051185.jpg',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTkHmX9JLyqUJ4F7fXGNI3JSFfeXf74btG3HzfLpRBXIzL38QVF&usqp=CAU',
+      'https://p.kindpng.com/picc/s/167-1671914_male-black-hair-anime-characters-png-download-black.png',
+      'https://lh3.googleusercontent.com/proxy/vUbfYy4qys7czmmOHtZvDpPU0hfIFa2I5XPdbP8fnZp0HTZSkS-SZK4PkyCeoxBy1vrFVLEuqSNwoFLau7YHqeOtMmlKYq45zn1zq_39DpvlaX5KfnKzFiVK50VQsWFEX9kNQTAgHH9CI-mN1hbf0NJblou-tcLQDyy20T2MMw',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRCnntmCPydlvLHLqdNxq6B55zEAbO0mTQ8gVupw-IRhWRS2dym&usqp=CAU',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQEDDESC9VTLPAmu8vljCBYRxhz53UAI8x_PPwFrh9bFxcRj1dx&usqp=CAU',
     ];
   }
 
@@ -224,8 +225,8 @@ class SampleData {
       'Naruto is a young ninja with a single dream: that he will one day become the greatest shinobi in the village. When he was young the Fourth Hokage sealed the nine-tailed demon fox within Naruto, and as a result he holds within him incredible power. Though he is not naturally talented or particularly intelligent, Naruto has the determination to succeed and works harder than anyone to achieve his goal. He has a particular like for eating ramen and utilising the Sexy technique jutsu on any unwilling male, but despite his laid-back and goofy attitude he cares deeply about his friends and would do anything to protect them.',
       'Kirito is one of 10,000 players trapped in the MMORPG known as Sword Art Online. He\'s recognized as a “Beater” to others for having restricted beta access before the death game started, and is harshly criticized for this unfair advantage. The skilled swordsman has condemned himself to a life of solitude as a result, and is determined to stay alive and reach Floor 100 to clear the game.Though he refuses to join a guild and has made enemies along the way, Kirito also has gained several allies: Asuna, who he briefly partnered with, and Klein, a newbie player he helped train at the start of the game. Unlike the majority of Sword Art Online\'s players who only look out for themselves, Kirito lends a hand to those in need.',
       'Colonel Mustang is one of the army\'s most powerful state alchemists. Going by the nickname of the Flame Alchemist he specialises in fighting with fire through the aid of his custom-made gloves. Mustang is a particularly ambitious man who aims to make it to the top of the military, and his loyal subordinates help him in any way they can. Though he can appear to be quite ruthless, Mustang has a strong sense of justice, cares deeply for his friends and frequently turns on the charm around beautiful ladies.',
-      'Itachi is a former Konoha ninja and elder brother of Sasuke, but now he works for Akatsuki. Before leaving Konoha, Itachi was thought of as a genius of his generation and was one of the youngest members of ANBU, but went missing after commiting an atrocious crime. He is proficient in all forms of ninja arts having mastered all of the Uchiha clan techniques. He also possesses the Sharingan and his ability to wield its power far exceeds that of Kakashi.'
-          'Erza is the strongest female wizard in the Fairy Tail guild and she has the magical ability to summon all sorts of weapons and armour as and when she needs it. She has a terrifying and harsh personality, and frequently strikes fear into the other guild members. As such she is the only one who can stop Natsu and Gray from fighting, as they don’t dare risk feeling her wrath.',
+      'Itachi is a former Konoha ninja and elder brother of Sasuke, but now he works for Akatsuki. Before leaving Konoha, Itachi was thought of as a genius of his generation and was one of the youngest members of ANBU, but went missing after commiting an atrocious crime. He is proficient in all forms of ninja arts having mastered all of the Uchiha clan techniques. He also possesses the Sharingan and his ability to wield its power far exceeds that of Kakashi.',
+      'Erza is the strongest female wizard in the Fairy Tail guild and she has the magical ability to summon all sorts of weapons and armour as and when she needs it. She has a terrifying and harsh personality, and frequently strikes fear into the other guild members. As such she is the only one who can stop Natsu and Gray from fighting, as they don’t dare risk feeling her wrath.',
     ];
   }
 }

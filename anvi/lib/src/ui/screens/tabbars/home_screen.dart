@@ -1,5 +1,6 @@
 import 'package:anvi/res/colors.dart';
 import 'package:anvi/src/models/base_info.dart';
+import 'package:anvi/src/ui/custom_views/home_screen/character_view.dart';
 import 'package:anvi/src/ui/custom_views/home_screen/discovery_view.dart';
 import 'package:anvi/src/ui/custom_views/home_screen/popular_view.dart';
 import 'package:anvi/src/ui/custom_views/home_screen/film_view.dart';
@@ -33,6 +34,10 @@ class HomeScreen extends StatelessWidget {
       case 2:
         return FilmView(
           infos: SampleData.getFilmList(),
+        );
+      case 3:
+        return CharacterView(
+          infos: SampleData.getListCharacter(),
         );
       default:
         return Container();
