@@ -5,32 +5,17 @@ import 'package:anvi/src/blocs/discovery_indicator_bloc.dart';
 import 'package:anvi/src/models/discovery_item.dart';
 import 'package:anvi/src/ui/custom_views/tags/tags.dart';
 import 'package:anvi/src/ui/custom_views/titles/moudle_title.dart';
+import 'package:anvi/src/utils/sample_data.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 class DiscoveryView extends StatelessWidget {
-  List<DiscoveryItem> _listDiscoverItem = List();
+  List<DiscoveryItem> _listDiscoverItem = SampleData.getDiscoveryList();
 
   @override
   Widget build(BuildContext context) {
     int _currentIndex = 0;
     DiscoveryIndicatorBloc _bloc = DiscoveryIndicatorBloc();
-    _listDiscoverItem.add(DiscoveryItem(
-        id: '0',
-        imageUrl:
-            'https://www.pandemic-legion.pl/forums/uploads/monthly_2017_07/super_anime_banner_collage_by_bellebelle410-d505zns.jpg.a2c1a77923e50a39450426be855f8d8d.jpg'));
-    _listDiscoverItem.add(DiscoveryItem(
-        id: '1',
-        imageUrl:
-            'https://c4.wallpaperflare.com/wallpaper/651/144/865/anime-crossover-albedo-overlord-ash-ketchum-wallpaper-preview.jpg'));
-    _listDiscoverItem.add(DiscoveryItem(
-        id: '2',
-        imageUrl:
-            'https://i2.wp.com/news.qoo-app.com/wp-content/uploads/2017/12/17122607442160.jpg'));
-    _listDiscoverItem.add(DiscoveryItem(
-        id: '3',
-        imageUrl:
-            'https://d2jcw5q7j4vmo4.cloudfront.net/ZVSDLK0DIT3uzOGY5B2-mNaTbK_9SE7nswGy2oDTuF2zNPzi6_dTNoxVDopdabh7tQ=w1440-h620'));
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,

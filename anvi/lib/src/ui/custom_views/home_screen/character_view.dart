@@ -1,14 +1,11 @@
-import 'package:anvi/res/colors.dart';
 import 'package:anvi/res/dimens.dart';
-import 'package:anvi/src/models/film_info.dart';
+import 'package:anvi/src/models/character_info.dart';
 import 'package:anvi/src/ui/custom_views/titles/moudle_title.dart';
-import 'package:anvi/src/ui/items/film_item.dart';
 import 'package:flutter/material.dart';
 
-class FilmView extends StatelessWidget {
-  final List<FilmInfo> infos;
-  FilmView({Key key, @required this.infos}) : super(key: key);
-
+class CharacterView extends StatelessWidget {
+  final List<CharacterInfo> infos;
+  CharacterView({Key key, @required this.infos}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,7 +17,7 @@ class FilmView extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           MainMoudleTitle(
-            title: 'Film',
+            title: 'Character',
             onTapShowAll: () {
               print('Tap show all');
             },

@@ -8,7 +8,7 @@ class FilmInfo extends BaseInfo {
   final BaseInfo baseInfo;
 
   FilmInfo({
-    @required @required this.productionName,
+    @required this.productionName,
     @required this.totalEpisode,
     @required this.currentEpisode,
     @required this.baseInfo,

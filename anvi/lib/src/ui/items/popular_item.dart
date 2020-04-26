@@ -57,6 +57,8 @@ class PopularItemView extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     fontSize: Dimens.itemTextLarge,
                   ),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
                 ),
                 SizedBox(
                   height: 2,
