@@ -15,7 +15,7 @@ class AppColors {
   static const Color black80 = Colors.black54;
   static const Color bgItem = Colors.white;
   static const Color moudleItemTitle = Color(0xFF474545);
-  static const Color shadow = Color(0x30000000);
+  static final Color shadow = Color(0x30D3D3D3).withOpacity(.84);
   static const Color blurBackground = Color(0x90000000);
 
   static const Color black = Colors.black;

@@ -26,7 +26,8 @@ class CharacterItem extends StatelessWidget {
           boxShadow: [
             BoxShadow(
               color: AppColors.shadow,
-              offset: Offset(2.0, 2.0),
+              offset: Offset(0.0, 4.0),
+              blurRadius: 5,
             ),
           ],
           color: AppColors.white),
@@ -50,7 +51,6 @@ class CharacterItem extends StatelessWidget {
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
-                
                 Text(
                   itemData.shortDes,
                   style: TextStyle(

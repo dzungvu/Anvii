@@ -22,7 +22,8 @@ class FilmItem extends StatelessWidget {
         boxShadow: <BoxShadow>[
           BoxShadow(
             color: AppColors.shadow,
-            offset: Offset(2.0, 2.0),
+            offset: Offset(0.0, 4.0),
+            blurRadius: 5,
           ),
         ],
         color: AppColors.white,

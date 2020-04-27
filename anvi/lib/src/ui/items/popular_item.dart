@@ -9,7 +9,8 @@ class PopularItemView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(left: Dimens.safeAreaSmall, bottom: Dimens.marginSmall),
+      margin: EdgeInsets.only(
+          left: Dimens.safeAreaSmall, bottom: Dimens.marginSmall),
       height: 200.0,
       width: 150.0,
       decoration: BoxDecoration(
@@ -18,7 +19,8 @@ class PopularItemView extends StatelessWidget {
         boxShadow: <BoxShadow>[
           BoxShadow(
             color: AppColors.shadow,
-            offset: Offset(4.0, 4.0),
+            offset: Offset(0.0, 4.0),
+            blurRadius: 5,
           )
         ],
       ),

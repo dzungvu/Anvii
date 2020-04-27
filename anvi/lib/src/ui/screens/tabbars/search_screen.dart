@@ -1,8 +1,90 @@
+import 'package:anvi/res/colors.dart';
+import 'package:anvi/res/dimens.dart';
 import 'package:flutter/material.dart';
 
 class SearchScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: CustomScrollView(
+        slivers: <Widget>[
+          SliverPersistentHeader(
+            pinned: false,
+            floating: true,
+            delegate: MySliverAppBar(
+              expandedHeight: 100.0,
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildBuilderDelegate(
+              (_, index) => ListTile(
+                title: Text("Index: $index"),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
   }
+}
+
+class MySliverAppBar extends SliverPersistentHeaderDelegate {
+  final double expandedHeight;
+
+  MySliverAppBar({@required this.expandedHeight});
+
+  @override
+  Widget build(
+      BuildContext context, double shrinkOffset, bool overlapsContent) {
+    return Container(
+      height: expandedHeight,
+      margin: EdgeInsets.only(
+        top: Dimens.marginGroupViewLarge,
+      ),
+      padding: EdgeInsets.symmetric(
+        horizontal: Dimens.safeAreaDistance,
+      ),
+      child: TextField(
+        decoration: InputDecoration(
+          contentPadding: EdgeInsets.symmetric(
+            vertical: Dimens.marginSmall,
+          ),
+          prefixIcon: Icon(
+            Icons.search,
+            color: AppColors.black80,
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(Dimens.borderInputMedium),
+            borderSide: BorderSide(
+              color: AppColors.darkWhite,
+              width: 0.0,
+            ),
+          ),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.all(
+              Radius.circular(
+                Dimens.borderInputMedium,
+              ),
+            ),
+          ),
+          fillColor: AppColors.darkWhite,
+          filled: true,
+          hintText: 'Search',
+          suffixIcon: Icon(
+            Icons.clear,
+            color: AppColors.lightBlack,
+          ),
+        ),
+      ),
+    );
+  }
+
+  @override
+  double get maxExtent => expandedHeight;
+
+  @override
+  double get minExtent => kToolbarHeight;
+
+  @override
+  bool shouldRebuild(SliverPersistentHeaderDelegate oldDelegate) => true;
 }
