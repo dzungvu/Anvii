@@ -1,4 +1,4 @@
-class Dimens{
+class Dimens {
   static const appbarTextSize = 25.0;
   static const safeAreaDistance = 16.0;
   static const safeAreaSmall = 8.0;
@@ -27,6 +27,7 @@ class Dimens{
   static const loginMarginTopContent = 64.0;
   static const textLinkMedium = 15.0;
 
+  static const borderInputSuperLarge = 60.0;
   static const borderInputLarge = 30.0;
   static const borderInputMedium = 15.0;
 

@@ -6,6 +6,7 @@ class SearchScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.darkWhite,
       body: CustomScrollView(
         slivers: <Widget>[
           SliverPersistentHeader(
@@ -36,13 +37,20 @@ class MySliverAppBar extends SliverPersistentHeaderDelegate {
   @override
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
+    print('$shrinkOffset and $overlapsContent');
+    if (shrinkOffset > 10) {
+      return Container(
+        height: shrinkOffset,
+      );
+    }
     return Container(
+      color: AppColors.darkWhite,
       height: expandedHeight,
-      margin: EdgeInsets.only(
+      padding: EdgeInsets.only(
+        left: Dimens.safeAreaDistance,
+        right: Dimens.safeAreaDistance,
+        bottom: Dimens.safeAreaDistance,
         top: Dimens.marginGroupViewLarge,
-      ),
-      padding: EdgeInsets.symmetric(
-        horizontal: Dimens.safeAreaDistance,
       ),
       child: TextField(
         decoration: InputDecoration(
@@ -56,7 +64,7 @@ class MySliverAppBar extends SliverPersistentHeaderDelegate {
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(Dimens.borderInputMedium),
             borderSide: BorderSide(
-              color: AppColors.darkWhite,
+              color: AppColors.white,
               width: 0.0,
             ),
           ),
@@ -67,7 +75,7 @@ class MySliverAppBar extends SliverPersistentHeaderDelegate {
               ),
             ),
           ),
-          fillColor: AppColors.darkWhite,
+          fillColor: AppColors.white,
           filled: true,
           hintText: 'Search',
           suffixIcon: Icon(

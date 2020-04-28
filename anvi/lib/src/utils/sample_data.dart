@@ -1,6 +1,7 @@
 import 'package:anvi/src/models/base_info.dart';
 import 'package:anvi/src/models/character_info.dart';
 import 'package:anvi/src/models/discovery_item.dart';
+import 'package:anvi/src/models/film_genres_info.dart';
 import 'package:anvi/src/models/film_info.dart';
 
 class SampleData {
@@ -227,6 +228,12 @@ class SampleData {
       'Colonel Mustang is one of the army\'s most powerful state alchemists. Going by the nickname of the Flame Alchemist he specialises in fighting with fire through the aid of his custom-made gloves. Mustang is a particularly ambitious man who aims to make it to the top of the military, and his loyal subordinates help him in any way they can. Though he can appear to be quite ruthless, Mustang has a strong sense of justice, cares deeply for his friends and frequently turns on the charm around beautiful ladies.',
       'Itachi is a former Konoha ninja and elder brother of Sasuke, but now he works for Akatsuki. Before leaving Konoha, Itachi was thought of as a genius of his generation and was one of the youngest members of ANBU, but went missing after commiting an atrocious crime. He is proficient in all forms of ninja arts having mastered all of the Uchiha clan techniques. He also possesses the Sharingan and his ability to wield its power far exceeds that of Kakashi.',
       'Erza is the strongest female wizard in the Fairy Tail guild and she has the magical ability to summon all sorts of weapons and armour as and when she needs it. She has a terrifying and harsh personality, and frequently strikes fear into the other guild members. As such she is the only one who can stop Natsu and Gray from fighting, as they don’t dare risk feeling her wrath.',
+    ];
+  }
+
+  static List<FilmGenresInfo> getListFilmGenres() {
+    return [
+      FilmGenresInfo(id: '', name: '', iconUrl: '', totalItem: '12,000'),
     ];
   }
 }
