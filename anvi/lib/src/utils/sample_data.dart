@@ -3,6 +3,8 @@ import 'package:anvi/src/models/character_info.dart';
 import 'package:anvi/src/models/discovery_item.dart';
 import 'package:anvi/src/models/film_genres_info.dart';
 import 'package:anvi/src/models/film_info.dart';
+import 'package:anvi/src/models/trending_item_info.dart';
+import 'package:anvi/src/ui/items/trending_content_item.dart';
 
 class SampleData {
   static List<FilmInfo> getFilmList() {
@@ -233,7 +235,76 @@ class SampleData {
 
   static List<FilmGenresInfo> getListFilmGenres() {
     return [
-      FilmGenresInfo(id: '', name: '', iconUrl: '', totalItem: '12,000'),
+      FilmGenresInfo(
+          id: '',
+          name: 'Action',
+          iconUrl:
+              'https://icons.veryicon.com/png/System/iOS7%20Minimal/Movie%20Genres%20Horror%202.png',
+          totalItem: '12,437'),
+      FilmGenresInfo(
+          id: '',
+          name: 'Adventure',
+          iconUrl:
+              'https://icons.veryicon.com/png/System/iOS7%20Minimal/Movie%20Genres%20Horror%202.png',
+          totalItem: '5,353'),
+      FilmGenresInfo(
+          id: '',
+          name: 'Comedy',
+          iconUrl:
+              'https://icons.veryicon.com/png/System/iOS7%20Minimal/Movie%20Genres%20Horror%202.png',
+          totalItem: '1,122'),
+      FilmGenresInfo(
+          id: '',
+          name: 'Crime',
+          iconUrl:
+              'https://icons.veryicon.com/png/System/iOS7%20Minimal/Movie%20Genres%20Horror%202.png',
+          totalItem: '6,312'),
+      FilmGenresInfo(
+          id: '',
+          name: 'Drama',
+          iconUrl:
+              'https://icons.veryicon.com/png/System/iOS7%20Minimal/Movie%20Genres%20Horror%202.png',
+          totalItem: '9,092'),
+      FilmGenresInfo(
+          id: '',
+          name: 'Fantasy',
+          iconUrl:
+              'https://icons.veryicon.com/png/System/iOS7%20Minimal/Movie%20Genres%20Horror%202.png',
+          totalItem: '2,127'),
+      FilmGenresInfo(
+          id: '',
+          name: 'Historical',
+          iconUrl:
+              'https://icons.veryicon.com/png/System/iOS7%20Minimal/Movie%20Genres%20Horror%202.png',
+          totalItem: '13,117'),
+      FilmGenresInfo(
+          id: '',
+          name: 'Historical fiction',
+          iconUrl:
+              'https://icons.veryicon.com/png/System/iOS7%20Minimal/Movie%20Genres%20Horror%202.png',
+          totalItem: '403'),
+      FilmGenresInfo(
+          id: '',
+          name: 'Horror',
+          iconUrl:
+              'https://icons.veryicon.com/png/System/iOS7%20Minimal/Movie%20Genres%20Horror%202.png',
+          totalItem: '1,900'),
+      FilmGenresInfo(
+          id: '',
+          name: 'Magical realism',
+          iconUrl:
+              'https://icons.veryicon.com/png/System/iOS7%20Minimal/Movie%20Genres%20Horror%202.png',
+          totalItem: '10,040'),
+    ];
+  }
+
+  static List<TrendingItemInfo> getListTrending() {
+    return [
+      TrendingItemInfo(id: "", title: "Uchiha Madara"),
+      TrendingItemInfo(id: "", title: "Shikamaru"),
+      TrendingItemInfo(id: "", title: "Kiba"),
+      TrendingItemInfo(id: "", title: "Choji"),
+      TrendingItemInfo(id: "", title: "Hinata"),
     ];
   }
 }

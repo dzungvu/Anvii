@@ -1,8 +1,33 @@
 import 'package:anvi/res/colors.dart';
 import 'package:anvi/res/dimens.dart';
+import 'package:anvi/src/ui/custom_views/search_screen/film_genres_view.dart';
+import 'package:anvi/src/ui/items/trending_content_item.dart';
+import 'package:anvi/src/ui/items/trending_title.dart';
+import 'package:anvi/src/utils/sample_data.dart';
 import 'package:flutter/material.dart';
 
 class SearchScreen extends StatelessWidget {
+  Widget _getViewAt(int pos) {
+    switch (pos) {
+      case 0:
+        return FilmGenresView(listData: SampleData.getListFilmGenres());
+      case 1:
+        return TrendingTitle();
+      case 2:
+        return TrendingContentItem(item: SampleData.getListTrending()[0]);
+      case 3:
+        return TrendingContentItem(item: SampleData.getListTrending()[1]);
+      case 4:
+        return TrendingContentItem(item: SampleData.getListTrending()[2]);
+      case 5:
+        return TrendingContentItem(item: SampleData.getListTrending()[3]);
+      case 6:
+        return TrendingContentItem(item: SampleData.getListTrending()[4]);
+      default:
+        return Container();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,9 +43,8 @@ class SearchScreen extends StatelessWidget {
           ),
           SliverList(
             delegate: SliverChildBuilderDelegate(
-              (_, index) => ListTile(
-                title: Text("Index: $index"),
-              ),
+              (_, index) => _getViewAt(index),
+              childCount: 7,
             ),
           ),
         ],

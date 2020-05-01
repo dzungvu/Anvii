@@ -38,4 +38,10 @@ class Dimens {
   static const bigTitle = 30.0;
 
   static const thumbnailSmall = 48.0;
+
+  // Search screen
+  static const filmgenres_height = 150.0;
+  static const filegenres_width = 90.0;
+  static const filmgenres_border_width = 2.0;
+  static const filmgenres_icon_width = 30.0;
 }
