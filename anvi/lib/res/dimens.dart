@@ -44,4 +44,8 @@ class Dimens {
   static const filegenres_width = 90.0;
   static const filmgenres_border_width = 2.0;
   static const filmgenres_icon_width = 30.0;
+
+  // Bookmark screen
+  static const bookmark_title_height = 150.0;
+  static const bookmark_title_text = 20.0;
 }
