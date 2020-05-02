@@ -94,9 +94,11 @@ class CharacterItem extends StatelessWidget {
               itemData.characterImage,
               width: 100.0,
               height: double.infinity,
-              fit: BoxFit.fill,
+              fit: BoxFit.cover,
             ),
           ),
+
+          
         ],
       ),
     );

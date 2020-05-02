@@ -39,6 +39,11 @@ class Dimens {
 
   static const thumbnailSmall = 48.0;
 
+  // Shadow
+  static const shadowBlurRadius = 15.0;
+  static const shadowX = 0.0;
+  static const shadowY = 4.0;
+
   // Search screen
   static const filmgenres_height = 150.0;
   static const filegenres_width = 90.0;

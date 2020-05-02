@@ -36,7 +36,7 @@ class PopularItemView extends StatelessWidget {
               info.thumbnailUrl,
               width: double.infinity,
               height: 180.0,
-              fit: BoxFit.fill,
+              fit: BoxFit.cover,
             ),
           ),
           SizedBox(

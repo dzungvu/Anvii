@@ -8,7 +8,7 @@ class FilmEspisodeProgress extends StatelessWidget {
   final double width;
 
   FilmEspisodeProgress(
-      {Key key, @required this.totalEps, @required this.currentEps, this.width})
+      {Key key, @required this.totalEps, @required this.currentEps, @required this.width})
       : super(key: key);
   @override
   Widget build(BuildContext context) {

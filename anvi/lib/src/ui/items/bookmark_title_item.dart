@@ -3,6 +3,13 @@ import 'package:anvi/res/dimens.dart';
 import 'package:flutter/material.dart';
 
 class BookmarkTitleItem extends StatelessWidget {
+
+  final String title;
+  final String imageUrl;
+  final Color backgroundColor;
+
+  BookmarkTitleItem({@required this.title, this.imageUrl, this.backgroundColor});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -31,10 +38,10 @@ class BookmarkTitleItem extends StatelessWidget {
                       Dimens.borderInputMedium,
                     ),
                   ),
-                  color: AppColors.primaryColor,
+                  color: backgroundColor,
                 ),
                 child: Text(
-                  'Bookmarked\nCharacter',
+                  title,
                   style: TextStyle(
                     color: AppColors.white,
                     fontWeight: FontWeight.bold,
@@ -54,8 +61,8 @@ class BookmarkTitleItem extends StatelessWidget {
                 bottomRight: Radius.circular(Dimens.borderInputMedium),
               ),
               child: Image.network(
-                'https://i.dlpng.com/static/png/5922811-transparent-naruhina-tumblr-hinata-hyuga-transparent-500_500_preview.png',
-                width: 100.0,
+                imageUrl,
+                width: 250.0,
                 height: double.infinity,
                 fit: BoxFit.fitHeight,
               ),

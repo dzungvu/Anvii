@@ -4,6 +4,7 @@ import 'package:anvi/src/models/discovery_item.dart';
 import 'package:anvi/src/models/film_genres_info.dart';
 import 'package:anvi/src/models/film_info.dart';
 import 'package:anvi/src/models/trending_item_info.dart';
+import 'package:anvi/src/models/bookmark_info.dart';
 import 'package:anvi/src/ui/items/trending_content_item.dart';
 
 class SampleData {
@@ -306,5 +307,12 @@ class SampleData {
       TrendingItemInfo(id: "", title: "Choji"),
       TrendingItemInfo(id: "", title: "Hinata"),
     ];
+  }
+
+  static BookmarkInfo getBookmarkInfo() {
+    return BookmarkInfo(
+      listFilm: getFilmList(),
+      listCharacter: getListCharacter(),
+    );
   }
 }
