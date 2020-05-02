@@ -1,5 +1,6 @@
 import 'package:anvi/res/colors.dart';
 import 'package:anvi/src/models/bookmark_info.dart';
+import 'package:anvi/src/ui/items/bookmark_character_item.dart';
 import 'package:anvi/src/ui/items/bookmark_film_item.dart';
 import 'package:anvi/src/ui/items/bookmark_title_item.dart';
 import 'package:anvi/src/ui/items/character_item.dart';
@@ -34,7 +35,7 @@ class BookmarkScreen extends StatelessWidget {
     );
     for (int i = 0; i < _info.listCharacter.length; i++) {
       returnList.add(
-        CharacterItem(itemData: _info.listCharacter[i]),
+        BookmarkCharacterItem(itemData: _info.listCharacter[i]),
       );
     }
     return returnList;
