@@ -61,7 +61,6 @@ class MySliverAppBar extends SliverPersistentHeaderDelegate {
   @override
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
-    print('$shrinkOffset and $overlapsContent');
     if (shrinkOffset > 10) {
       return Container(
         height: shrinkOffset,

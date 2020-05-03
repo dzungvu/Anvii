@@ -11,11 +11,13 @@ class FilmTag extends StatelessWidget {
   List<Widget> _getListWidget() {
     List<Widget> listWidget = [];
     listWidget.add(
-      Text(
-        'Films ',
-        style: TextStyle(
-          color: AppColors.lightBlack,
-          fontSize: Dimens.itemTextSubTitleLarge,
+      Center(
+        child: Text(
+          'Films ',
+          style: TextStyle(
+            color: AppColors.lightBlack,
+            fontSize: Dimens.itemTextSubTitleLarge,
+          ),
         ),
       ),
     );
@@ -93,8 +95,17 @@ class FilmTag extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: _getListWidget(),
+    var listWidget = _getListWidget();
+    return Container(
+      height: 48,
+      child: ListView.builder(
+        itemBuilder: (context, index) => listWidget[index],
+        itemCount: listWidget.length,
+        scrollDirection: Axis.horizontal,
+      ),
     );
+    // return Row(
+    //   children: _getListWidget(),
+    // );
   }
 }
