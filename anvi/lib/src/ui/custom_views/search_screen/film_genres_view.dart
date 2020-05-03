@@ -11,7 +11,7 @@ class FilmGenresView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: Dimens.filmgenres_height,
+      height: Dimens.filmgenres_height + 16,
       child: ListView.builder(
         itemBuilder: (context, index) => _getFilmGenresItem(index),
         itemCount: listData.length,

@@ -24,13 +24,6 @@ class FillmGenresItem extends StatelessWidget {
             Dimens.borderInputSuperLarge,
           ),
         ),
-        boxShadow: [
-          BoxShadow(
-            blurRadius: 15,
-            offset: Offset(0, 4),
-            color: AppColors.shadow,
-          ),
-        ],
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,

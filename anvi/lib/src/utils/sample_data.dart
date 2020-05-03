@@ -5,7 +5,7 @@ import 'package:anvi/src/models/film_genres_info.dart';
 import 'package:anvi/src/models/film_info.dart';
 import 'package:anvi/src/models/trending_item_info.dart';
 import 'package:anvi/src/models/bookmark_info.dart';
-import 'package:anvi/src/ui/items/trending_content_item.dart';
+import 'package:anvi/src/models/user_info.dart';
 
 class SampleData {
   static List<FilmInfo> getFilmList() {
@@ -313,6 +313,17 @@ class SampleData {
     return BookmarkInfo(
       listFilm: getFilmList(),
       listCharacter: getListCharacter(),
+    );
+  }
+
+  static UserInfo getUserInfo() {
+    return UserInfo(
+      username: 'juzung_dev',
+      email: 'dzungvucs@gmail.com',
+      age: '24',
+      gender: 'Male',
+      avatar:
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR_Ngy4QOszrDxr3dAFHqsWRONTxmiGSukjzRUvJKWJGcoz-9JO&usqp=CAU',
     );
   }
 }
