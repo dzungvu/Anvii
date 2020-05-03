@@ -57,7 +57,16 @@ class SettingScreen extends StatelessWidget {
 class SettingHeader extends SliverPersistentHeaderDelegate {
   final UserInfo _userInfo = SampleData.getUserInfo();
   final double extendHeight;
+  final double minHeight = 100;
   SettingHeader({@required this.extendHeight});
+
+  double _getOpacity(double shrinkOffset) {
+    double value = shrinkOffset / (extendHeight - minHeight);
+    if (value > 1) {
+      return 1;
+    }
+    return value;
+  }
 
   @override
   Widget build(
@@ -74,7 +83,7 @@ class SettingHeader extends SliverPersistentHeaderDelegate {
         children: <Widget>[
           Container(
             color:
-                AppColors.primaryColor.withOpacity(shrinkOffset / extendHeight),
+                AppColors.primaryColor.withOpacity(_getOpacity(shrinkOffset)),
           ),
           Padding(
             padding: EdgeInsets.all(Dimens.marginCommon),
@@ -130,7 +139,7 @@ class SettingHeader extends SliverPersistentHeaderDelegate {
   double get maxExtent => extendHeight;
 
   @override
-  double get minExtent => 100;
+  double get minExtent => minHeight;
 
   @override
   bool shouldRebuild(SliverPersistentHeaderDelegate oldDelegate) => true;
