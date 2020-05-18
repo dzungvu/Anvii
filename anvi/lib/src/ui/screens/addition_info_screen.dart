@@ -7,6 +7,8 @@ import 'package:anvi/src/ui/custom_views/gender_picker.dart';
 import 'package:flutter/material.dart';
 
 class AdditionInfoScreen extends StatelessWidget {
+  static const routeName = '/addition_info';
+
   void _updateInfo() {
     print('Update info');
   }

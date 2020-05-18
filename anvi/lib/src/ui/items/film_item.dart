@@ -6,112 +6,117 @@ import 'package:flutter/material.dart';
 
 class FilmItem extends StatelessWidget {
   final FilmInfo itemData;
+  final Function itemClick;
 
-  FilmItem({Key key, @required this.itemData}) : super(key: key);
+  FilmItem({Key key, @required this.itemData, @required this.itemClick})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(
-        bottom: Dimens.marginSmall,
-      ),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(
-          Radius.circular(Dimens.borderInputMedium),
+    return GestureDetector(
+      onTap: () => itemClick(),
+      child: Container(
+        margin: EdgeInsets.only(
+          bottom: Dimens.marginSmall,
         ),
-        boxShadow: <BoxShadow>[
-          BoxShadow(
-            color: AppColors.shadow,
-            offset: Offset(0.0, 4.0),
-            blurRadius: 5,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(
+            Radius.circular(Dimens.borderInputMedium),
           ),
-        ],
-        color: AppColors.white,
-      ),
-      padding: EdgeInsets.all(
-        Dimens.marginCommon,
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Row(
-            children: <Widget>[
-              Expanded(
-                flex: 1,
-                child: Text(
-                  itemData.animeName,
-                  style: TextStyle(
-                    color: AppColors.lightBlack,
-                    fontWeight: FontWeight.bold,
-                    fontSize: Dimens.itemTextTitle,
+          boxShadow: <BoxShadow>[
+            BoxShadow(
+              color: AppColors.shadow,
+              offset: Offset(0.0, 4.0),
+              blurRadius: 5,
+            ),
+          ],
+          color: AppColors.white,
+        ),
+        padding: EdgeInsets.all(
+          Dimens.marginCommon,
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Row(
+              children: <Widget>[
+                Expanded(
+                  flex: 1,
+                  child: Text(
+                    itemData.animeName,
+                    style: TextStyle(
+                      color: AppColors.lightBlack,
+                      fontWeight: FontWeight.bold,
+                      fontSize: Dimens.itemTextTitle,
+                    ),
+                    overflow: TextOverflow.ellipsis,
                   ),
-                  overflow: TextOverflow.ellipsis,
                 ),
-              ),
-              Text(
-                '${(itemData.currentEpisode / itemData.totalEpisode * 100).toInt()}%',
-                style: TextStyle(
-                  color: AppColors.primaryColor,
-                  fontWeight: FontWeight.bold,
-                  fontSize: Dimens.itemTextTitleLarge,
+                Text(
+                  '${(itemData.currentEpisode / itemData.totalEpisode * 100).toInt()}%',
+                  style: TextStyle(
+                    color: AppColors.primaryColor,
+                    fontWeight: FontWeight.bold,
+                    fontSize: Dimens.itemTextTitleLarge,
+                  ),
                 ),
-              ),
-            ],
-          ),
-          SizedBox(
-            height: Dimens.marginCommon,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              ClipRRect(
-                borderRadius: BorderRadius.all(
-                  Radius.circular(Dimens.borderInputMedium),
+              ],
+            ),
+            SizedBox(
+              height: Dimens.marginCommon,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                ClipRRect(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(Dimens.borderInputMedium),
+                  ),
+                  child: Image.network(
+                    itemData.thumbnailUrl,
+                    width: Dimens.thumbnailSmall,
+                    height: Dimens.thumbnailSmall,
+                    fit: BoxFit.fill,
+                  ),
                 ),
-                child: Image.network(
-                  itemData.thumbnailUrl,
-                  width: Dimens.thumbnailSmall,
-                  height: Dimens.thumbnailSmall,
-                  fit: BoxFit.fill,
+                SizedBox(
+                  width: Dimens.marginSmall,
                 ),
-              ),
-              SizedBox(
-                width: Dimens.marginSmall,
-              ),
-              Expanded(
-                flex: 1,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      itemData.authorName,
-                      style: TextStyle(
-                        color: AppColors.lightBlack,
-                        fontSize: Dimens.itemTextSubTitle,
+                Expanded(
+                  flex: 1,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        itemData.authorName,
+                        style: TextStyle(
+                          color: AppColors.lightBlack,
+                          fontSize: Dimens.itemTextSubTitle,
+                        ),
+                        overflow: TextOverflow.ellipsis,
                       ),
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                    Text(
-                      itemData.productionName,
-                      style: TextStyle(
-                        color: AppColors.lightBlack,
-                        fontSize: Dimens.itemTextSubTitle,
+                      Text(
+                        itemData.productionName,
+                        style: TextStyle(
+                          color: AppColors.lightBlack,
+                          fontSize: Dimens.itemTextSubTitle,
+                        ),
+                        overflow: TextOverflow.ellipsis,
                       ),
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-              FilmEspisodeProgress(
-                totalEps: itemData.totalEpisode,
-                currentEps: itemData.currentEpisode,
-                width: 100.0,
-              )
-            ],
-          ),
-        ],
+                FilmEspisodeProgress(
+                  totalEps: itemData.totalEpisode,
+                  currentEps: itemData.currentEpisode,
+                  width: 100.0,
+                )
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -2,9 +2,12 @@ import 'package:anvi/res/colors.dart';
 import 'package:anvi/res/dimens.dart';
 import 'package:anvi/res/styles.dart';
 import 'package:anvi/src/ui/custom_views/custom_textfield.dart';
+import 'package:anvi/src/ui/screens/home_page.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
+  static const routeName = '/login';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -109,7 +112,7 @@ class LoginScreen extends StatelessWidget {
                           child: RaisedButton(
                             color: AppColors.primaryColor,
                             onPressed: () =>
-                                Navigator.pushNamed(context, '/tabbar'),
+                                Navigator.pushNamed(context, MyHomePage.routeName),
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(
                                     Dimens.borderInputLarge),

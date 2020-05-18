@@ -3,6 +3,9 @@ import 'dart:convert';
 import 'package:anvi/res/colors.dart';
 import 'package:anvi/res/dimens.dart';
 import 'package:anvi/res/styles.dart';
+import 'package:anvi/src/ui/screens/home_page.dart';
+import 'package:anvi/src/ui/screens/login_screen.dart';
+import 'package:anvi/src/ui/screens/register_screen.dart';
 import 'package:anvi/src/utils/sign_in.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
@@ -21,7 +24,7 @@ class SelectLoginMethodScreen extends StatelessWidget {
     }
 
     void _showLoggedInUI() {
-      Navigator.of(context).pushNamed('/tabbar');
+      Navigator.of(context).pushNamed(MyHomePage.routeName);
     }
 
     void _showCancelledMessage() {}
@@ -72,7 +75,8 @@ class SelectLoginMethodScreen extends StatelessWidget {
                   style: TextStyle(
                       color: AppColors.white, fontSize: Dimens.itemTextTitle),
                 ),
-                onPressed: () => {Navigator.of(context).pushNamed('/login')},
+                onPressed: () =>
+                    Navigator.of(context).pushNamed(LoginScreen.routeName),
               ),
             ),
             SizedBox(
@@ -160,7 +164,7 @@ class SelectLoginMethodScreen extends StatelessWidget {
                 ),
                 onPressed: () => {
                   signInWithGoogle().whenComplete(() {
-                    Navigator.of(context).pushNamed('/tabbar');
+                    Navigator.of(context).pushNamed(MyHomePage.routeName);
                   })
                 },
               ),
@@ -170,7 +174,7 @@ class SelectLoginMethodScreen extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.of(context).pushNamed('/register');
+                Navigator.of(context).pushNamed(RegisterScreen.routeName);
               },
               child: RichText(
                 text: TextSpan(

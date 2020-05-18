@@ -2,9 +2,12 @@ import 'package:anvi/res/colors.dart';
 import 'package:anvi/res/dimens.dart';
 import 'package:anvi/res/styles.dart';
 import 'package:anvi/src/ui/custom_views/custom_textfield.dart';
+import 'package:anvi/src/ui/screens/addition_info_screen.dart';
 import 'package:flutter/material.dart';
 
 class RegisterScreen extends StatelessWidget {
+  static const routeName = '/register';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -83,7 +86,7 @@ class RegisterScreen extends StatelessWidget {
                     child: RaisedButton(
                       color: AppColors.primaryColor,
                       onPressed: () {
-                        Navigator.of(context).pushNamed('/additionInfo');
+                        Navigator.of(context).pushNamed(AdditionInfoScreen.routeName);
                       },
                       shape: RoundedRectangleBorder(
                           borderRadius:

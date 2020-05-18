@@ -6,6 +6,7 @@ import 'package:anvi/src/ui/screens/tabbars/setting_screen.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatelessWidget {
+  static const routeName = '/home';
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(

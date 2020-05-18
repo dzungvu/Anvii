@@ -1,8 +1,8 @@
-import 'package:anvi/res/colors.dart';
 import 'package:anvi/res/dimens.dart';
 import 'package:anvi/src/models/film_info.dart';
 import 'package:anvi/src/ui/custom_views/titles/moudle_title.dart';
 import 'package:anvi/src/ui/items/film_item.dart';
+import 'package:anvi/src/ui/screens/film_detail_screen.dart';
 import 'package:flutter/material.dart';
 
 class FilmView extends StatelessWidget {
@@ -46,6 +46,13 @@ class FilmView extends StatelessWidget {
   Widget _getItem(BuildContext context, int index) {
     return FilmItem(
       itemData: infos[index],
+      itemClick: () => {
+        print('Navigate to detail screen'),
+        Navigator.of(context).pushNamed(
+          FilmDetailScreen.routeName,
+          arguments: infos[index],
+        ),
+      },
     );
   }
 }
