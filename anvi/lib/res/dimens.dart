@@ -53,4 +53,7 @@ class Dimens {
   // Bookmark screen
   static const bookmark_title_height = 150.0;
   static const bookmark_title_text = 20.0;
+
+  // Thumbnail padding
+  static const thumbnailPadding = 2.0;
 }

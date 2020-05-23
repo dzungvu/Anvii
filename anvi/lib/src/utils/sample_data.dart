@@ -3,9 +3,11 @@ import 'package:anvi/src/models/character_info.dart';
 import 'package:anvi/src/models/discovery_item.dart';
 import 'package:anvi/src/models/film_genres_info.dart';
 import 'package:anvi/src/models/film_info.dart';
+import 'package:anvi/src/models/point.dart';
 import 'package:anvi/src/models/trending_item_info.dart';
 import 'package:anvi/src/models/bookmark_info.dart';
 import 'package:anvi/src/models/user_info.dart';
+import 'package:anvi/src/models/film_detail.dart';
 
 class SampleData {
   static List<FilmInfo> getFilmList() {
@@ -24,6 +26,29 @@ class SampleData {
       );
     }
     return data;
+  }
+
+  static FilmDetail getFilmDetail() {
+    return FilmDetail(
+      bgImageUrl: 'https://regus1.files.wordpress.com/2016/02/anime-banner-1.jpg',
+      filmInfo: SampleData.getFilmList()[0],
+      characters: getListCharacter(),
+      points: getPoints(),
+    );
+  }
+
+  static List<Point> getPoints() {
+
+    List<Point> points = [];
+    points.add(
+      Point(id: '1',
+      name: 'IMDb',
+      point: '4.5',
+      image: 'https://img.icons8.com/all/500/imdb.png',)
+    );
+
+    return points;
+
   }
 
   static List<BaseInfo> getBaseInfoList() {
