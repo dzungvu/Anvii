@@ -8,6 +8,8 @@ import 'package:anvi/src/models/trending_item_info.dart';
 import 'package:anvi/src/models/bookmark_info.dart';
 import 'package:anvi/src/models/user_info.dart';
 import 'package:anvi/src/models/film_detail.dart';
+import 'package:anvi/src/models/writer_info.dart';
+import 'package:anvi/src/models/production_info.dart';
 
 class SampleData {
   static List<FilmInfo> getFilmList() {
@@ -30,25 +32,44 @@ class SampleData {
 
   static FilmDetail getFilmDetail() {
     return FilmDetail(
-      bgImageUrl: 'https://regus1.files.wordpress.com/2016/02/anime-banner-1.jpg',
+      bgImageUrl:
+          'https://regus1.files.wordpress.com/2016/02/anime-banner-1.jpg',
       filmInfo: SampleData.getFilmList()[0],
       characters: getListCharacter(),
       points: getPoints(),
+      productionInfo: getProductionInfo(),
+      writterInfo: getWriter(),
     );
   }
 
-  static List<Point> getPoints() {
+  static WriterInfo getWriter() {
+    return WriterInfo(
+        id: 'wt00001',
+        imageUrl:
+            'https://cdn.iconscout.com/icon/free/png-256/content-writing-1405748-1185046.png',
+        name: getAuthorList()[1],
+        writerUrl: '');
+  }
 
+  static ProductionInfo getProductionInfo() {
+    return ProductionInfo(
+        id: 'pd00001',
+        imageUrl:
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/BANDAI_NAMCO_logo.svg/300px-BANDAI_NAMCO_logo.svg.png',
+        name: 'Bandai Namco',
+        productionUrl: 'https://www.bandainamcoent.com');
+  }
+
+  static List<Point> getPoints() {
     List<Point> points = [];
-    points.add(
-      Point(id: '1',
+    points.add(Point(
+      id: '1',
       name: 'IMDb',
       point: '4.5',
-      image: 'https://img.icons8.com/all/500/imdb.png',)
-    );
+      image: 'https://img.icons8.com/all/500/imdb.png',
+    ));
 
     return points;
-
   }
 
   static List<BaseInfo> getBaseInfoList() {
