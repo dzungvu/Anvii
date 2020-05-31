@@ -28,4 +28,6 @@ class AppColors {
   static const Color star = Colors.yellowAccent;
   static const Color indicatorUnselected = Color(0xFF969798);
   static const Color indicatorSelected = Color(0xFFFFFFFF);
+
+  static const Color pink = Colors.pink;
 }

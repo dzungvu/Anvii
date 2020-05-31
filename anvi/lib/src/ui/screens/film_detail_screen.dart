@@ -3,6 +3,7 @@ import 'package:anvi/src/models/film_detail.dart';
 import 'package:anvi/src/models/film_info.dart';
 import 'package:anvi/src/ui/custom_views/film_detail_screen/film_detail_header.dart';
 import 'package:anvi/src/ui/custom_views/film_detail_screen/film_point.dart';
+import 'package:anvi/src/ui/custom_views/film_detail_screen/like_bookmark.dart';
 import 'package:anvi/src/utils/sample_data.dart';
 import 'package:flutter/material.dart';
 
@@ -26,6 +27,15 @@ class FilmDetailScreen extends StatelessWidget {
               bgImage: data.bgImageUrl,
               thumbnail: data.filmInfo.thumbnailUrl,
               title: data.filmInfo.animeName,
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: Dimens.marginCommon,
+              ),
+              child: LikeBookMark(),
+            ),
+            SizedBox(
+              height: Dimens.marginSmall,
             ),
             Padding(
               padding: const EdgeInsets.symmetric(

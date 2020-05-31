@@ -20,6 +20,8 @@ class Sticker extends StatelessWidget {
       height: 50,
       width: double.infinity,
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Image.network(
             imageUrl,
@@ -29,29 +31,32 @@ class Sticker extends StatelessWidget {
           SizedBox(
             width: Dimens.marginSmall,
           ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Flexible(
-                child: Text(
-                  title,
-                  style: TextStyle(
-                    fontSize: Dimens.itemTextSubTitle,
-                    color: AppColors.lightBlack,
+          Expanded(
+            flex: 1,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                  child: Text(
+                    title,
+                    style: TextStyle(
+                      fontSize: Dimens.itemTextSubTitle,
+                      color: AppColors.lightBlack,
+                    ),
+                    overflow: TextOverflow.ellipsis,
+                    softWrap: false,
                   ),
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 2,
                 ),
-              ),
-              Flexible(
-                child: Text(
-                  content,
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 2,
+                Container(
+                  child: Text(
+                    content,
+                    overflow: TextOverflow.ellipsis,
+                    softWrap: false,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ],
       ),

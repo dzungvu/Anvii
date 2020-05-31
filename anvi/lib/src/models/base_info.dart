@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
 
 class BaseInfo {
-  String thumbnailUrl;
-  String animeName;
-  String authorName;
-  int status;
+  final String thumbnailUrl;
+  final String animeName;
+  final String authorName;
+  final int status;
+  final String publishTime;
 
-  BaseInfo(
-      {@required thumbnailUrl,
-      @required animeName,
-      @required authorName,
-      @required status}) {
-    this.thumbnailUrl = thumbnailUrl;
-    this.animeName = animeName;
-    this.authorName = authorName;
-    this.status = status;
-  }
+  BaseInfo({
+    @required this.thumbnailUrl,
+    @required this.animeName,
+    @required this.authorName,
+    @required this.status,
+    @required this.publishTime,
+  });
 }

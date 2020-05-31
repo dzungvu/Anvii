@@ -63,6 +63,8 @@ flutter:
     - lib/res/assets/man.svg
     - lib/res/assets/female.svg
     - lib/res/assets/action_movie.svg
+    - lib/res/assets/heart_disable.png
+    - lib/res/assets/heart_enable.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

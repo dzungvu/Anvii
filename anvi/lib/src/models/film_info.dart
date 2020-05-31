@@ -5,17 +5,27 @@ class FilmInfo extends BaseInfo {
   final String productionName;
   final int totalEpisode;
   final int currentEpisode;
-  final BaseInfo baseInfo;
+
+  final String authorName;
+  final String animeName;
+  final String thumbnailUrl;
+  final int status;
+  final String publishTime;
 
   FilmInfo({
     @required this.productionName,
     @required this.totalEpisode,
     @required this.currentEpisode,
-    @required this.baseInfo,
-  }) {
-    this.animeName = baseInfo.animeName;
-    this.authorName = baseInfo.authorName;
-    this.thumbnailUrl = baseInfo.thumbnailUrl;
-    this.status = baseInfo.status;
-  }
+    @required this.thumbnailUrl,
+    @required this.animeName,
+    @required this.authorName,
+    @required this.status,
+    @required this.publishTime,
+  }) : super(
+          thumbnailUrl: thumbnailUrl,
+          animeName: animeName,
+          authorName: authorName,
+          status: status,
+          publishTime: publishTime,
+        );
 }

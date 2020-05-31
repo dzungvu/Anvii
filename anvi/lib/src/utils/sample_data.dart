@@ -17,14 +17,15 @@ class SampleData {
     for (int i = 0; i < 10; i++) {
       data.add(
         FilmInfo(
-            productionName: getProductionList()[i],
-            totalEpisode: getTotalEpsList()[i],
-            currentEpisode: getCurrentEpsList()[i],
-            baseInfo: BaseInfo(
-                animeName: getAnimeNameList()[i],
-                authorName: getAuthorList()[i],
-                thumbnailUrl: getThumbnailList()[i],
-                status: 0)),
+          productionName: getProductionList()[i],
+          totalEpisode: getTotalEpsList()[i],
+          currentEpisode: getCurrentEpsList()[i],
+          animeName: getAnimeNameList()[i],
+          authorName: getAuthorList()[i],
+          thumbnailUrl: getThumbnailList()[i],
+          status: 0,
+          publishTime: "Mar 15th 2012",
+        ),
       );
     }
     return data;
@@ -39,6 +40,8 @@ class SampleData {
       points: getPoints(),
       productionInfo: getProductionInfo(),
       writterInfo: getWriter(),
+      description:
+          "Death Note (Japanese: デスノート, Hepburn: Desu Nōto) is a Japanese manga series written by Tsugumi Ohba and illustrated by Takeshi Obata. The story follows Light Yagami, a teen genius[3] who stumbles across a mysterious otherworldly notebook: the \"Death Note\", which belonged to the Shinigami Ryuk, and grants the user the supernatural ability to kill anyone whose name is written in its pages. The series centers around Light's subsequent attempts to use the Death Note to carry out a worldwide massacre of individuals whom he deems morally unworthy of life to change the world into a utopian society without crime, using the alias of a god-like vigilante named \"Kira\" (\"キラ\", the Japanese transliteration of the English word: killer) and the subsequent efforts of an elite task-force of law enforcement officers, consisting of members of the Japanese police force, led by L, an enigmatic international detective whose past is shrouded in mystery, to apprehend him and end his reign of terror.",
     );
   }
 
