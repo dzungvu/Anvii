@@ -48,7 +48,7 @@ class FilmSummary extends StatelessWidget {
                         text: publishTime,
                         style: TextStyle(
                           color: AppColors.black80,
-                          fontWeight: FontWeight.normal,
+                          fontWeight: FontWeight.bold,
                           fontSize: Dimens.itemTextTitle,
                         ),
                       ),
@@ -68,7 +68,7 @@ class FilmSummary extends StatelessWidget {
                         text: '$currentEpisode/$totolEpisode',
                         style: TextStyle(
                           color: AppColors.black80,
-                          fontWeight: FontWeight.normal,
+                          fontWeight: FontWeight.bold,
                           fontSize: Dimens.itemTextTitle,
                         ),
                       ),
@@ -88,7 +88,7 @@ class FilmSummary extends StatelessWidget {
                         text: totalSeason,
                         style: TextStyle(
                           color: AppColors.black80,
-                          fontWeight: FontWeight.normal,
+                          fontWeight: FontWeight.bold,
                           fontSize: Dimens.itemTextTitle,
                         ),
                       ),

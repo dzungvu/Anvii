@@ -1,10 +1,13 @@
 import 'package:anvi/res/dimens.dart';
 import 'package:anvi/src/models/film_detail.dart';
 import 'package:anvi/src/models/film_info.dart';
+import 'package:anvi/src/ui/custom_views/film_detail_screen/film_charaters.dart';
+import 'package:anvi/src/ui/custom_views/film_detail_screen/film_description.dart';
 import 'package:anvi/src/ui/custom_views/film_detail_screen/film_detail_header.dart';
 import 'package:anvi/src/ui/custom_views/film_detail_screen/film_point.dart';
 import 'package:anvi/src/ui/custom_views/film_detail_screen/film_summary.dart';
 import 'package:anvi/src/ui/custom_views/film_detail_screen/like_bookmark.dart';
+import 'package:anvi/src/ui/items/film_characters_item.dart';
 import 'package:anvi/src/utils/sample_data.dart';
 import 'package:flutter/material.dart';
 
@@ -53,6 +56,12 @@ class FilmDetailScreen extends StatelessWidget {
               currentEpisode: data.filmInfo.currentEpisode,
               totolEpisode: data.filmInfo.totalEpisode,
               publishTime: data.filmInfo.publishTime,
+            ),
+            FilmDescription(
+              description: data.description,
+            ),
+            FilmCharacters(
+              listCharacters: data.characters,
             ),
           ],
         ),
