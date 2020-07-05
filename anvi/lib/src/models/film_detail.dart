@@ -13,6 +13,7 @@ class FilmDetail {
   final List<Point> points;
   final List<CharacterInfo> characters;
   final String description;
+  final String totalSeason;
 
   FilmDetail({
     @required this.bgImageUrl,
@@ -22,5 +23,6 @@ class FilmDetail {
     @required this.points,
     @required this.characters,
     @required this.description,
+    @required this.totalSeason,
   });
 }
