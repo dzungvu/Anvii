@@ -38,6 +38,7 @@ class SampleData {
       filmInfo: SampleData.getFilmList()[0],
       characters: getListCharacter(),
       points: getPoints(),
+      filmRelateds: getFilmList(),
       productionInfo: getProductionInfo(),
       writterInfo: getWriter(),
       description:

@@ -12,6 +12,7 @@ class FilmDetail {
   final ProductionInfo productionInfo;
   final List<Point> points;
   final List<CharacterInfo> characters;
+  final List<FilmInfo> filmRelateds;
   final String description;
   final String totalSeason;
 
@@ -22,6 +23,7 @@ class FilmDetail {
     @required this.productionInfo,
     @required this.points,
     @required this.characters,
+    @required this.filmRelateds,
     @required this.description,
     @required this.totalSeason,
   });

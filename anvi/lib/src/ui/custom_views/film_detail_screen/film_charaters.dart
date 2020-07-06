@@ -21,7 +21,7 @@ class FilmCharacters extends StatelessWidget {
               horizontal: Dimens.safeAreaDistance,
             ),
             child: Text(
-              'Film\'s charaters',
+              'Film\'s charaters (${listCharacters.length})',
               style: TextStyle(
                 color: AppColors.lightBlack,
                 fontSize: Dimens.itemTextTitleLarge,
@@ -35,7 +35,7 @@ class FilmCharacters extends StatelessWidget {
           Container(
             height: 150,
             child: ListView.builder(
-              itemBuilder: (context, index) => _getItemAt(index),
+              itemBuilder: (context, index) => _getItemCharacterAt(index),
               itemCount: listCharacters.length,
               scrollDirection: Axis.horizontal,
             ),
@@ -45,7 +45,7 @@ class FilmCharacters extends StatelessWidget {
     );
   }
 
-  Widget _getItemAt(int index) {
+  Widget _getItemCharacterAt(int index) {
     return FilmCharacterItem(
       info: listCharacters[index],
     );
