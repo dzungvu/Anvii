@@ -7,6 +7,7 @@ import 'package:anvi/src/ui/custom_views/film_detail_screen/film_detail_header.d
 import 'package:anvi/src/ui/custom_views/film_detail_screen/film_point.dart';
 import 'package:anvi/src/ui/custom_views/film_detail_screen/film_related.dart';
 import 'package:anvi/src/ui/custom_views/film_detail_screen/film_summary.dart';
+import 'package:anvi/src/ui/custom_views/film_detail_screen/film_trailer.dart';
 import 'package:anvi/src/ui/custom_views/film_detail_screen/like_bookmark.dart';
 import 'package:anvi/src/utils/sample_data.dart';
 import 'package:flutter/material.dart';
@@ -56,6 +57,12 @@ class FilmDetailScreen extends StatelessWidget {
               currentEpisode: data.filmInfo.currentEpisode,
               totolEpisode: data.filmInfo.totalEpisode,
               publishTime: data.filmInfo.publishTime,
+            ),
+            Align(
+              child: FilmTrailer(
+                trailerUrl: 'https://www.youtube.com/watch?v=XWby1Kv5xE8',
+              ),
+              alignment: Alignment.centerLeft,
             ),
             FilmDescription(
               description: data.description,
