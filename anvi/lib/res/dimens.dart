@@ -23,6 +23,8 @@ class Dimens {
   static const itemTextSubTitle = 13.0;
   static const itemTextTitleLarge = 21.0;
   static const itemTextSubTitleLarge = 13.0;
+  static const textTitleLarge = 27.0;
+  static const textSubTitleLarge = 21.0;
 
   static const loginMarginTopContent = 64.0;
   static const textLinkMedium = 15.0;

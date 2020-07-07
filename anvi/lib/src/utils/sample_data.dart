@@ -1,4 +1,5 @@
 import 'package:anvi/src/models/base_info.dart';
+import 'package:anvi/src/models/character_detail.dart';
 import 'package:anvi/src/models/character_info.dart';
 import 'package:anvi/src/models/discovery_item.dart';
 import 'package:anvi/src/models/film_genres_info.dart';
@@ -220,8 +221,22 @@ class SampleData {
           characterName: getListCharaterName()[i],
           characterImage: getListCharaterImage()[i],
           longDes: getListCharacterLongDes()[i],
-          shortDes: getListCharacterShortDes()[i],
-          listFilm: getFilmList()));
+          shortDes: getListCharacterShortDes()[i]));
+    }
+    return data;
+  }
+
+  static List<CharacterDetail> getListCharacterDetail() {
+    List<CharacterDetail> data = [];
+    for (int i = 0; i < 10; i++) {
+      data.add(
+        CharacterDetail(
+          basicInfo: getListCharacter()[i],
+          images: getListCharaterImage(),
+          filmsRelated: getFilmList(),
+          charactersRelated: getListCharacter(),
+        ),
+      );
     }
     return data;
   }
