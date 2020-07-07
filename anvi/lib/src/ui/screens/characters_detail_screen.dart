@@ -37,6 +37,7 @@ class CharacterDetailScreen extends StatelessWidget {
   List<Widget> _getListWidget() {
     List<Widget> listWidget = [];
     listWidget.add(_getSeparatorWidget());
+    listWidget.add(_getCharacterImageWidget());
     listWidget.add(_getDescriptionWidget());
     listWidget.add(_getSeparatorWidget());
     listWidget.add(_getListFilmRelated());
@@ -85,6 +86,45 @@ class CharacterDetailScreen extends StatelessWidget {
   Widget _getListCharacterRelated() {
     return FilmCharacters(
       listCharacters: data.charactersRelated,
+    );
+  }
+
+  Widget _getCharacterImageWidget() {
+    return Container(
+      height: 300,
+      child: ListView.builder(
+        itemBuilder: (context, index) => _getImageAt(index),
+        itemCount: data.images.length,
+        scrollDirection: Axis.horizontal,
+      ),
+    );
+  }
+
+  Widget _getImageAt(int index) {
+    return Container(
+      margin: EdgeInsets.only(
+        left: Dimens.marginCommon,
+      ),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.all(
+          Radius.circular(
+            Dimens.borderInputMedium,
+          ),
+        ),
+      ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.all(
+          Radius.circular(
+            Dimens.borderInputMedium,
+          ),
+        ),
+        child: Image.network(
+          data.images[index],
+          height: 280,
+          width: 150,
+          fit: BoxFit.cover,
+        ),
+      ),
     );
   }
 }

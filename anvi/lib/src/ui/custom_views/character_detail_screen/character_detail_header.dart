@@ -7,7 +7,7 @@ import 'package:flutter/cupertino.dart';
 
 class CharacterDetailHeader extends SliverPersistentHeaderDelegate {
   final double extendHeight;
-  final double minHeight = 280;
+  final double minHeight = 320;
   CharacterDetailHeader({@required this.extendHeight});
 
   @override
@@ -53,7 +53,7 @@ class CharacterDetailHeader extends SliverPersistentHeaderDelegate {
                   style: TextStyle(
                     color: AppColors.white,
                     fontSize: Dimens.textTitleLarge,
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.normal,
                   ),
                 ),
                 SizedBox(
@@ -63,7 +63,7 @@ class CharacterDetailHeader extends SliverPersistentHeaderDelegate {
                   'Character description here. Just a short text of how this character is in anime film. \nIts could be long, but just show all the information in this field. Not ... require with this text field.',
                   style: TextStyle(
                     color: AppColors.white,
-                    fontSize: Dimens.itemTextTitle,
+                    fontSize: Dimens.textSubTitleLarge,
                     fontWeight: FontWeight.normal,
                   ),
                 ),
