@@ -2,6 +2,7 @@ import 'package:anvi/res/dimens.dart';
 import 'package:anvi/src/models/character_info.dart';
 import 'package:anvi/src/ui/custom_views/titles/moudle_title.dart';
 import 'package:anvi/src/ui/items/character_item.dart';
+import 'package:anvi/src/ui/screens/characters_detail_screen.dart';
 import 'package:flutter/material.dart';
 
 class CharacterView extends StatelessWidget {
@@ -44,6 +45,10 @@ class CharacterView extends StatelessWidget {
   Widget _getItem(BuildContext context, int index) {
     return CharacterItem(
       itemData: infos[index],
+      itemClick: () => {
+        print('Click on character item'),
+        Navigator.of(context).pushNamed(CharacterDetailScreen.routeName),
+      }
     );
   }
 }
