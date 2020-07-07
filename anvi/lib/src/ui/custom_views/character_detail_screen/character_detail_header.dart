@@ -7,7 +7,7 @@ import 'package:flutter/cupertino.dart';
 
 class CharacterDetailHeader extends SliverPersistentHeaderDelegate {
   final double extendHeight;
-  final double minHeight = 320;
+  final double minHeight = 340;
   CharacterDetailHeader({@required this.extendHeight});
 
   @override
