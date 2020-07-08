@@ -52,6 +52,12 @@ class FilmDetailScreen extends StatelessWidget {
                 writerInfo: data.writterInfo,
               ),
             ),
+            SizedBox(
+              height: Dimens.marginCommon,
+            ),
+            FilmCharacters(
+              listCharacters: data.characters,
+            ),
             FilmSummary(
               totalSeason: data.totalSeason,
               currentEpisode: data.filmInfo.currentEpisode,
@@ -66,9 +72,6 @@ class FilmDetailScreen extends StatelessWidget {
             ),
             FilmDescription(
               description: data.description,
-            ),
-            FilmCharacters(
-              listCharacters: data.characters,
             ),
             FilmRelated(
               listFilmInfo: data.filmRelateds,

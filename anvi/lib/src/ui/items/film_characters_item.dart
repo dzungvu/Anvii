@@ -11,17 +11,19 @@ class FilmCharacterItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 150,
+      height: 85,
       width: 110,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Image.network(
-            info.characterImage,
-            fit: BoxFit.cover,
-            height: 100,
-            width: 100,
+          ClipOval(
+            child: Image.network(
+              info.characterImage,
+              fit: BoxFit.cover,
+              height: 80,
+              width: 80,
+            ),
           ),
           SizedBox(
             height: Dimens.safeAreaSmall,
@@ -32,6 +34,7 @@ class FilmCharacterItem extends StatelessWidget {
               color: AppColors.lightBlack,
               fontSize: Dimens.itemTextSubTitle,
             ),
+            textAlign: TextAlign.center,
           ),
         ],
       ),
