@@ -1,3 +1,4 @@
+import 'package:anvi/res/colors.dart';
 import 'package:anvi/res/dimens.dart';
 import 'package:anvi/src/models/film_detail.dart';
 import 'package:anvi/src/models/film_info.dart';
@@ -75,6 +76,14 @@ class FilmDetailScreen extends StatelessWidget {
             ),
             FilmRelated(
               listFilmInfo: data.filmRelateds,
+              title: Text(
+                'Films related (${data.filmRelateds.length})',
+                style: TextStyle(
+                  color: AppColors.lightBlack,
+                  fontSize: Dimens.itemTextTitleLarge,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ),
             SizedBox(
               height: Dimens.marginGroupViewLarge,

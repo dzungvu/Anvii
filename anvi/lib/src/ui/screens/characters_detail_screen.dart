@@ -2,7 +2,6 @@ import 'package:anvi/res/colors.dart';
 import 'package:anvi/res/dimens.dart';
 import 'package:anvi/src/ui/custom_views/character_detail_screen/character_detail_header.dart';
 import 'package:anvi/src/ui/custom_views/film_detail_screen/film_charaters.dart';
-import 'package:anvi/src/ui/custom_views/film_detail_screen/film_related.dart';
 import 'package:anvi/src/utils/sample_data.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +19,8 @@ class CharacterDetailScreen extends StatelessWidget {
         slivers: <Widget>[
           SliverPersistentHeader(
             delegate: CharacterDetailHeader(
-                extendHeight: MediaQuery.of(context).size.height),
+              extendHeight: MediaQuery.of(context).size.height,
+            ),
             pinned: false,
           ),
           SliverList(
@@ -40,7 +40,6 @@ class CharacterDetailScreen extends StatelessWidget {
     listWidget.add(_getCharacterImageWidget());
     listWidget.add(_getDescriptionWidget());
     listWidget.add(_getSeparatorWidget());
-    listWidget.add(_getListFilmRelated());
     listWidget.add(_getSeparatorWidget());
     listWidget.add(_getListCharacterRelated());
     listWidget.add(_getSeparatorWidget());
@@ -69,18 +68,36 @@ class CharacterDetailScreen extends StatelessWidget {
         ),
         color: AppColors.lightBlack,
       ),
-      child: Text(
-        data.basicInfo.longDes,
-        style: TextStyle(
-          color: AppColors.white,
-          fontSize: Dimens.itemTextTitle,
+      child: RichText(
+        text: TextSpan(
+          children: <TextSpan>[
+            TextSpan(
+              text: 'Description:\n',
+              style: TextStyle(
+                color: AppColors.white,
+                fontSize: Dimens.textTitleLarge,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            TextSpan(
+              text: data.basicInfo.longDes,
+              style: TextStyle(
+                color: AppColors.white,
+                fontSize: Dimens.itemTextTitle,
+                fontWeight: FontWeight.normal,
+              ),
+            ),
+          ],
         ),
       ),
+      // child: Text(
+      //   data.basicInfo.longDes,
+      //   style: TextStyle(
+      //     color: AppColors.white,
+      //     fontSize: Dimens.itemTextTitle,
+      //   ),
+      // ),
     );
-  }
-
-  Widget _getListFilmRelated() {
-    return FilmRelated(listFilmInfo: data.filmsRelated);
   }
 
   Widget _getListCharacterRelated() {

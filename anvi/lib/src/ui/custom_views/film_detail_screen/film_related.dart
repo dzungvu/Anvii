@@ -1,4 +1,3 @@
-import 'package:anvi/res/colors.dart';
 import 'package:anvi/res/dimens.dart';
 import 'package:anvi/src/models/film_info.dart';
 import 'package:anvi/src/ui/items/film_related_item.dart';
@@ -6,8 +5,13 @@ import 'package:flutter/cupertino.dart';
 
 class FilmRelated extends StatelessWidget {
   final List<FilmInfo> listFilmInfo;
+  final Text title;
 
-  FilmRelated({Key key, @required this.listFilmInfo}) : super(key: key);
+  FilmRelated({
+    Key key,
+    @required this.listFilmInfo,
+    @required this.title,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,14 +23,7 @@ class FilmRelated extends StatelessWidget {
           padding: const EdgeInsets.symmetric(
             horizontal: Dimens.marginCommon,
           ),
-          child: Text(
-            'Films related (${listFilmInfo.length})',
-            style: TextStyle(
-              color: AppColors.lightBlack,
-              fontSize: Dimens.itemTextTitleLarge,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
+          child: title,
         ),
         SizedBox(
           height: Dimens.marginCommon,

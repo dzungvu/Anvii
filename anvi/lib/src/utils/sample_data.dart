@@ -265,7 +265,7 @@ class SampleData {
       'https://doitbeforeme.com/wp-content/uploads/2019/02/20-best-anime-character-designs-easy-drawing-ideas-for-beginners-2019-1-e1551384051185.jpg',
       'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTkHmX9JLyqUJ4F7fXGNI3JSFfeXf74btG3HzfLpRBXIzL38QVF&usqp=CAU',
       'https://p.kindpng.com/picc/s/167-1671914_male-black-hair-anime-characters-png-download-black.png',
-      'https://lh3.googleusercontent.com/proxy/vUbfYy4qys7czmmOHtZvDpPU0hfIFa2I5XPdbP8fnZp0HTZSkS-SZK4PkyCeoxBy1vrFVLEuqSNwoFLau7YHqeOtMmlKYq45zn1zq_39DpvlaX5KfnKzFiVK50VQsWFEX9kNQTAgHH9CI-mN1hbf0NJblou-tcLQDyy20T2MMw',
+      '',
       'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRCnntmCPydlvLHLqdNxq6B55zEAbO0mTQ8gVupw-IRhWRS2dym&usqp=CAU',
       'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQEDDESC9VTLPAmu8vljCBYRxhz53UAI8x_PPwFrh9bFxcRj1dx&usqp=CAU',
     ];

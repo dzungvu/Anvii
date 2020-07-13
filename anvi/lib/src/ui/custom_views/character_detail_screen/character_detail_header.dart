@@ -2,13 +2,31 @@ import 'dart:ui';
 
 import 'package:anvi/res/colors.dart';
 import 'package:anvi/res/dimens.dart';
+import 'package:anvi/src/ui/custom_views/film_detail_screen/film_related.dart';
 import 'package:anvi/src/ui/custom_views/film_detail_screen/like_bookmark.dart';
+import 'package:anvi/src/utils/sample_data.dart';
 import 'package:flutter/cupertino.dart';
 
 class CharacterDetailHeader extends SliverPersistentHeaderDelegate {
   final double extendHeight;
-  final double minHeight = 340;
-  CharacterDetailHeader({@required this.extendHeight});
+  final double minHeight = 560;
+  CharacterDetailHeader({
+    @required this.extendHeight,
+  });
+
+  Widget _getListFilmRelated() {
+    return FilmRelated(
+      listFilmInfo: SampleData.getFilmList(),
+      title: Text(
+        'Films related',
+        style: TextStyle(
+          color: AppColors.white,
+          fontSize: Dimens.itemTextTitleLarge,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    );
+  }
 
   @override
   Widget build(
@@ -40,15 +58,15 @@ class CharacterDetailHeader extends SliverPersistentHeaderDelegate {
               ),
             ),
           ),
-          Padding(
-            padding: EdgeInsets.all(
-              Dimens.marginCommon,
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(
+          Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: Dimens.marginCommon,
+                ),
+                child: Text(
                   'Character \nName',
                   style: TextStyle(
                     color: AppColors.white,
@@ -56,10 +74,15 @@ class CharacterDetailHeader extends SliverPersistentHeaderDelegate {
                     fontWeight: FontWeight.normal,
                   ),
                 ),
-                SizedBox(
-                  height: Dimens.marginCommon,
+              ),
+              SizedBox(
+                height: Dimens.marginCommon,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: Dimens.marginCommon,
                 ),
-                Text(
+                child: Text(
                   'Character description here. Just a short text of how this character is in anime film. \nIts could be long, but just show all the information in this field. Not ... require with this text field.',
                   style: TextStyle(
                     color: AppColors.white,
@@ -67,12 +90,21 @@ class CharacterDetailHeader extends SliverPersistentHeaderDelegate {
                     fontWeight: FontWeight.normal,
                   ),
                 ),
-                SizedBox(
-                  height: Dimens.marginGroupView,
+              ),
+              SizedBox(
+                height: Dimens.marginCommon,
+              ),
+              _getListFilmRelated(),
+              SizedBox(
+                height: Dimens.marginGroupView,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(
+                  Dimens.marginCommon,
                 ),
-                LikeBookMark(),
-              ],
-            ),
+                child: LikeBookMark(),
+              ),
+            ],
           ),
         ],
       ),

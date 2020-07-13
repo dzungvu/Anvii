@@ -24,24 +24,30 @@ class FilmRelatedItem extends StatelessWidget {
           ),
         ),
         color: AppColors.white,
-        boxShadow: [
-          BoxShadow(
-              blurRadius: Dimens.shadowBlurRadius,
-              offset: Offset(Dimens.shadowX, Dimens.shadowY),
-              color: AppColors.shadow)
-        ],
       ),
       child: Stack(
         children: <Widget>[
-          Image.network(
-            info.thumbnailUrl,
-            fit: BoxFit.cover,
-            height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width,
+          ClipRRect(
+            borderRadius: BorderRadius.all(
+              Radius.circular(
+                Dimens.borderInputMedium,
+              ),
+            ),
+            child: Image.network(
+              info.thumbnailUrl,
+              fit: BoxFit.cover,
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
+            ),
           ),
           Container(
             alignment: Alignment.bottomLeft,
             decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(
+                Radius.circular(
+                  Dimens.borderInputMedium,
+                ),
+              ),
               gradient: LinearGradient(
                 colors: [AppColors.transparent, AppColors.black80],
                 begin: Alignment.topLeft,
