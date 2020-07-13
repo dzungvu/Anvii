@@ -2,6 +2,7 @@ import 'package:anvi/res/colors.dart';
 import 'package:anvi/res/dimens.dart';
 import 'package:anvi/src/ui/custom_views/character_detail_screen/character_detail_header.dart';
 import 'package:anvi/src/ui/custom_views/film_detail_screen/film_charaters.dart';
+import 'package:anvi/src/ui/screens/image_full_screen.dart';
 import 'package:anvi/src/utils/sample_data.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +13,7 @@ class CharacterDetailScreen extends StatelessWidget {
   final data = SampleData.getListCharacterDetail()[0];
   @override
   Widget build(BuildContext context) {
-    var listWidget = _getListWidget();
+    var listWidget = _getListWidget(context);
     return Scaffold(
       backgroundColor: AppColors.white,
       body: CustomScrollView(
@@ -34,10 +35,10 @@ class CharacterDetailScreen extends StatelessWidget {
     );
   }
 
-  List<Widget> _getListWidget() {
+  List<Widget> _getListWidget(BuildContext context) {
     List<Widget> listWidget = [];
     listWidget.add(_getSeparatorWidget());
-    listWidget.add(_getCharacterImageWidget());
+    listWidget.add(_getCharacterImageWidget(context));
     listWidget.add(_getDescriptionWidget());
     listWidget.add(_getSeparatorWidget());
     listWidget.add(_getSeparatorWidget());
@@ -106,40 +107,55 @@ class CharacterDetailScreen extends StatelessWidget {
     );
   }
 
-  Widget _getCharacterImageWidget() {
+  Widget _getCharacterImageWidget(BuildContext context) {
     return Container(
       height: 300,
       child: ListView.builder(
-        itemBuilder: (context, index) => _getImageAt(index),
+        itemBuilder: (context, index) => _getImageAt(index, context),
         itemCount: data.images.length,
         scrollDirection: Axis.horizontal,
       ),
     );
   }
 
-  Widget _getImageAt(int index) {
-    return Container(
-      margin: EdgeInsets.only(
-        left: Dimens.marginCommon,
-      ),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(
-          Radius.circular(
-            Dimens.borderInputMedium,
+  Widget _getImageAt(int index, BuildContext context) {
+    String _imageTag = 'fullImage$index';
+    return GestureDetector(
+      onTap: () => {
+        Navigator.of(context).pushNamed(
+          ImageFullScreen.routeName,
+          arguments: ImageFullScreenArguments(
+            url: data.images[index],
+            imageTag: _imageTag,
+          ),
+        )
+      },
+      child: Container(
+        margin: EdgeInsets.only(
+          left: Dimens.marginCommon,
+        ),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(
+            Radius.circular(
+              Dimens.borderInputMedium,
+            ),
           ),
         ),
-      ),
-      child: ClipRRect(
-        borderRadius: BorderRadius.all(
-          Radius.circular(
-            Dimens.borderInputMedium,
+        child: ClipRRect(
+          borderRadius: BorderRadius.all(
+            Radius.circular(
+              Dimens.borderInputMedium,
+            ),
           ),
-        ),
-        child: Image.network(
-          data.images[index],
-          height: 280,
-          width: 150,
-          fit: BoxFit.cover,
+          child: Hero(
+            tag: _imageTag,
+            child: Image.network(
+              data.images[index],
+              height: 280,
+              width: 150,
+              fit: BoxFit.cover,
+            ),
+          ),
         ),
       ),
     );
