@@ -98,27 +98,43 @@ class SampleData {
     List<DiscoveryItem> data = [];
     data.add(
       DiscoveryItem(
-          id: '0',
-          imageUrl:
-              'https://www.pandemic-legion.pl/forums/uploads/monthly_2017_07/super_anime_banner_collage_by_bellebelle410-d505zns.jpg.a2c1a77923e50a39450426be855f8d8d.jpg'),
+        id: '0',
+        imageUrl:
+            'https://www.pandemic-legion.pl/forums/uploads/monthly_2017_07/super_anime_banner_collage_by_bellebelle410-d505zns.jpg.a2c1a77923e50a39450426be855f8d8d.jpg',
+        type: 0,
+        title: 'Discovery film 1',
+        description: '2010 • 500 Tập • 15.02.2010',
+      ),
     );
     data.add(
       DiscoveryItem(
-          id: '1',
-          imageUrl:
-              'https://c4.wallpaperflare.com/wallpaper/651/144/865/anime-crossover-albedo-overlord-ash-ketchum-wallpaper-preview.jpg'),
+        id: '1',
+        imageUrl:
+            'https://c4.wallpaperflare.com/wallpaper/651/144/865/anime-crossover-albedo-overlord-ash-ketchum-wallpaper-preview.jpg',
+        type: 0,
+        title: 'Discovery film 2',
+        description: 'Description discovery film 2 Description discovery film 2 Description discovery film 2',
+      ),
     );
     data.add(
       DiscoveryItem(
-          id: '2',
-          imageUrl:
-              'https://i2.wp.com/news.qoo-app.com/wp-content/uploads/2017/12/17122607442160.jpg'),
+        id: '2',
+        imageUrl:
+            'https://i2.wp.com/news.qoo-app.com/wp-content/uploads/2017/12/17122607442160.jpg',
+        type: 1,
+        title: 'Discovery character 1',
+        description: 'Description discovery character 1 Description discovery character 1 Description discovery character 1 ',
+      ),
     );
     data.add(
       DiscoveryItem(
-          id: '3',
-          imageUrl:
-              'https://d2jcw5q7j4vmo4.cloudfront.net/ZVSDLK0DIT3uzOGY5B2-mNaTbK_9SE7nswGy2oDTuF2zNPzi6_dTNoxVDopdabh7tQ=w1440-h620'),
+        id: '3',
+        imageUrl:
+            'https://d2jcw5q7j4vmo4.cloudfront.net/ZVSDLK0DIT3uzOGY5B2-mNaTbK_9SE7nswGy2oDTuF2zNPzi6_dTNoxVDopdabh7tQ=w1440-h620',
+        type: 0,
+        title: 'Discovery character 2',
+        description: 'Description discovery character 2 Description discovery character 2 Description discovery character 2 ',
+      ),
     );
 
     return data;

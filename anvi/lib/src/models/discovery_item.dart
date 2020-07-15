@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
 
 class DiscoveryItem {
-  String id;
-  String imageUrl;
+  final String id;
+  final String imageUrl;
+  final int type;
+  final title;
+  final description;
 
-  DiscoveryItem({@required id, @required imageUrl}){this.id = id; this.imageUrl = imageUrl;}
+  DiscoveryItem({
+    @required this.id,
+    @required this.imageUrl,
+    @required this.type,
+    @required this.title,
+    @required this.description,
+  });
 }

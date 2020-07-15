@@ -6,6 +6,7 @@ import 'package:anvi/src/ui/screens/image_full_screen.dart';
 import 'package:anvi/src/ui/screens/login_screen.dart';
 import 'package:anvi/src/ui/screens/register_screen.dart';
 import 'package:anvi/src/ui/screens/player_screen.dart';
+import 'package:anvi/src/ui/screens/discovery_film_detail_screen.dart';
 
 final routes = {
   MyHomePage.routeName: (context) => MyHomePage(),
@@ -16,4 +17,5 @@ final routes = {
   PlayerScreen.routeName: (context) => PlayerScreen(),
   CharacterDetailScreen.routeName: (context) => CharacterDetailScreen(),
   ImageFullScreen.routeName: (context) => ImageFullScreen(),
+  DiscoveryFilmDetailScreen.routeName: (context) => DiscoveryFilmDetailScreen(),
 };

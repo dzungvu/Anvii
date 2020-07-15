@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:anvi/res/colors.dart';
 import 'package:anvi/res/dimens.dart';
 import 'package:anvi/src/ui/screens/player_screen.dart';

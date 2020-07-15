@@ -65,6 +65,9 @@ class _ImageFullScreenState extends State<ImageFullScreen> {
           }
         else
           {
+            print(
+              '$_currentY => Not back',
+            ),
             setState(() {
               paddingTop = 0;
               paddingBottom = 0;

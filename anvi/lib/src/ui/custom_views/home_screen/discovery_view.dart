@@ -1,20 +1,19 @@
 import 'package:anvi/res/colors.dart';
 import 'package:anvi/res/dimens.dart';
-import 'package:anvi/res/styles.dart';
 import 'package:anvi/src/blocs/discovery_indicator_bloc.dart';
 import 'package:anvi/src/models/discovery_item.dart';
 import 'package:anvi/src/ui/custom_views/tags/tags.dart';
 import 'package:anvi/src/ui/custom_views/titles/moudle_title.dart';
 import 'package:anvi/src/utils/sample_data.dart';
+import 'package:anvi/src/ui/screens/discovery_film_detail_screen.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 class DiscoveryView extends StatelessWidget {
-  List<DiscoveryItem> _listDiscoverItem = SampleData.getDiscoveryList();
+  final List<DiscoveryItem> _listDiscoverItem = SampleData.getDiscoveryList();
 
   @override
   Widget build(BuildContext context) {
-    int _currentIndex = 0;
     DiscoveryIndicatorBloc _bloc = DiscoveryIndicatorBloc();
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -72,59 +71,55 @@ class DiscoveryView extends StatelessWidget {
   Widget getItemView(BuildContext context, DiscoveryItem item) {
     return GestureDetector(
       onTap: () => selectItem(item.id),
-      child: Container(
-        width: MediaQuery.of(context).size.width,
-        margin: EdgeInsets.all(8),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(8),
-          child: Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: NetworkImage(item.imageUrl),
-                fit: BoxFit.fill,
-              ),
-            ),
+      child: GestureDetector(
+        onTap: () => {
+          Navigator.of(context).pushNamed(
+            DiscoveryFilmDetailScreen.routeName,
+            arguments: item,
+          ),
+        },
+        child: Container(
+          width: MediaQuery.of(context).size.width,
+          margin: EdgeInsets.all(8),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(8),
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: Dimens.marginCommon),
-              color: AppColors.blurBackground,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Tags(
-                    tag: 'Discovery',
-                  ),
-                  SizedBox(
-                    height: Dimens.marginSmall,
-                  ),
-                  Text(
-                    'Naruto',
-                    style: TextStyle(
-                      color: AppColors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: Dimens.bigTitle,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: NetworkImage(item.imageUrl),
+                  fit: BoxFit.fill,
+                ),
+              ),
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: Dimens.marginCommon),
+                color: AppColors.blurBackground,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Tags(
+                      tag: 'Discovery',
                     ),
-                  ),
-                  Text(
-                    '2010 • 500 Tập • 15.02.2010',
-                    style: TextStyle(
+                    SizedBox(
+                      height: Dimens.marginSmall,
+                    ),
+                    Text(
+                      item.title,
+                      style: TextStyle(
                         color: AppColors.white,
-                        fontSize: Dimens.itemTextSubTitle,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  Icon(
-                    Icons.star,
-                    color: AppColors.star,
-                    size: 16.0,
-                  ),
-                  Text(
-                    '4.3',
-                    style: TextStyle(
-                      color: AppColors.white,
-                      fontSize: Dimens.itemTextSubTitle,
+                        fontWeight: FontWeight.bold,
+                        fontSize: Dimens.bigTitle,
+                      ),
                     ),
-                  )
-                ],
+                    Text(
+                      item.description,
+                      style: TextStyle(
+                          color: AppColors.white,
+                          fontSize: Dimens.itemTextSubTitle,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
