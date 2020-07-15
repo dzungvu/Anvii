@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:anvi/res/colors.dart';
 import 'package:anvi/src/models/discovery_item.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class DiscoveryFilmDetailScreen extends StatelessWidget {
   static const routeName = '/discovery_film_detail';
@@ -10,12 +11,14 @@ class DiscoveryFilmDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     DiscoveryItem data = ModalRoute.of(context).settings.arguments;
-    return Container(
-      color: AppColors.white,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[_headerView(context, data)],
+    return Scaffold(
+      body: Container(
+        color: AppColors.white,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[_headerView(context, data)],
+        ),
       ),
     );
   }

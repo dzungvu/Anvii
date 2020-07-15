@@ -1,3 +1,4 @@
+import 'package:anvi/src/ui/screens/discovery_all_screen.dart';
 import 'package:anvi/src/ui/screens/addition_info_screen.dart';
 import 'package:anvi/src/ui/screens/characters_detail_screen.dart';
 import 'package:anvi/src/ui/screens/film_detail_screen.dart';
@@ -18,4 +19,5 @@ final routes = {
   CharacterDetailScreen.routeName: (context) => CharacterDetailScreen(),
   ImageFullScreen.routeName: (context) => ImageFullScreen(),
   DiscoveryFilmDetailScreen.routeName: (context) => DiscoveryFilmDetailScreen(),
+  DiscoveryAllScreen.routeName: (context) => DiscoveryAllScreen(),
 };
