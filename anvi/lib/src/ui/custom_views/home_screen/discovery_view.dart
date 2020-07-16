@@ -4,8 +4,9 @@ import 'package:anvi/src/blocs/discovery_indicator_bloc.dart';
 import 'package:anvi/src/models/discovery_item.dart';
 import 'package:anvi/src/ui/custom_views/tags/tags.dart';
 import 'package:anvi/src/ui/custom_views/titles/moudle_title.dart';
+import 'package:anvi/src/ui/items/discovery_item.dart';
+import 'package:anvi/src/ui/screens/discovery_all_screen.dart';
 import 'package:anvi/src/utils/sample_data.dart';
-import 'package:anvi/src/ui/screens/discovery_film_detail_screen.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
@@ -26,6 +27,7 @@ class DiscoveryView extends StatelessWidget {
           title: 'Discovery',
           onTapShowAll: () {
             print('show all');
+            Navigator.of(context).pushNamed(DiscoveryAllScreen.routeName);
           },
         ),
         SizedBox(
@@ -44,8 +46,10 @@ class DiscoveryView extends StatelessWidget {
                 initialPage: 0,
                 viewportFraction: 1.0,
                 itemCount: _listDiscoverItem.length,
-                itemBuilder: (context, index) =>
-                    getItemView(context, _listDiscoverItem[index]),
+                itemBuilder: (context, index) => DiscoveryViewItem(
+                  context: context,
+                  item: _listDiscoverItem[index],
+                ),
                 onPageChanged: (index) => _bloc.selectItem(index),
               ),
             ),
@@ -65,74 +69,6 @@ class DiscoveryView extends StatelessWidget {
           ],
         ),
       ],
-    );
-  }
-
-  Widget getItemView(BuildContext context, DiscoveryItem item) {
-    return GestureDetector(
-      onTap: () => selectItem(item.id),
-      child: GestureDetector(
-        onTap: () => {
-          Navigator.of(context).pushNamed(
-            DiscoveryFilmDetailScreen.routeName,
-            arguments: item,
-          ),
-        },
-        child: Container(
-          width: MediaQuery.of(context).size.width,
-          margin: EdgeInsets.all(8),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(8),
-            child: Stack(
-              children: <Widget>[
-                Hero(
-                  tag: DiscoveryFilmDetailScreen.heroImageTag,
-                  child: Image.network(
-                    item.imageUrl,
-                    fit: BoxFit.cover,
-                    height: double.infinity,
-                    width: double.infinity,
-                  ),
-                ),
-                Container(
-                  width: double.infinity,
-                  height: double.infinity,
-                  padding:
-                      EdgeInsets.symmetric(horizontal: Dimens.marginCommon),
-                  color: AppColors.blurBackground,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Tags(
-                        tag: 'Discovery',
-                      ),
-                      SizedBox(
-                        height: Dimens.marginSmall,
-                      ),
-                      Text(
-                        item.title,
-                        style: TextStyle(
-                          color: AppColors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: Dimens.bigTitle,
-                        ),
-                      ),
-                      Text(
-                        item.description,
-                        style: TextStyle(
-                            color: AppColors.white,
-                            fontSize: Dimens.itemTextSubTitle,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
     );
   }
 

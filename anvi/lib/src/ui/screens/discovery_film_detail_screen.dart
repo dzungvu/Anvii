@@ -5,6 +5,7 @@ import 'package:anvi/src/models/discovery_item.dart';
 import 'package:anvi/src/models/film_detail.dart';
 import 'package:anvi/src/utils/sample_data.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class DiscoveryFilmDetailScreen extends StatelessWidget {
   static const routeName = '/discovery_film_detail';
@@ -15,29 +16,31 @@ class DiscoveryFilmDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     DiscoveryItem data = ModalRoute.of(context).settings.arguments;
-    return Container(
-      color: AppColors.white,
-      child: Stack(
-        children: <Widget>[
-          Positioned(
-            child: Hero(
-              tag: heroImageTag,
-              child: Image.network(
-                data.imageUrl,
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height,
-                fit: BoxFit.cover,
+    return Scaffold(
+      body: Container(
+        color: AppColors.white,
+        child: Stack(
+          children: <Widget>[
+            Positioned(
+              child: Hero(
+                tag: heroImageTag,
+                child: Image.network(
+                  data.imageUrl,
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
-          ),
-          Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
-            decoration: BoxDecoration(
-              color: AppColors.black80,
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
+              decoration: BoxDecoration(
+                color: AppColors.black80,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
