@@ -83,44 +83,52 @@ class DiscoveryView extends StatelessWidget {
           margin: EdgeInsets.all(8),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(8),
-            child: Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: NetworkImage(item.imageUrl),
-                  fit: BoxFit.fill,
+            child: Stack(
+              children: <Widget>[
+                Hero(
+                  tag: DiscoveryFilmDetailScreen.heroImageTag,
+                  child: Image.network(
+                    item.imageUrl,
+                    fit: BoxFit.cover,
+                    height: double.infinity,
+                    width: double.infinity,
+                  ),
                 ),
-              ),
-              child: Container(
-                padding: EdgeInsets.symmetric(horizontal: Dimens.marginCommon),
-                color: AppColors.blurBackground,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Tags(
-                      tag: 'Discovery',
-                    ),
-                    SizedBox(
-                      height: Dimens.marginSmall,
-                    ),
-                    Text(
-                      item.title,
-                      style: TextStyle(
-                        color: AppColors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: Dimens.bigTitle,
+                Container(
+                  width: double.infinity,
+                  height: double.infinity,
+                  padding:
+                      EdgeInsets.symmetric(horizontal: Dimens.marginCommon),
+                  color: AppColors.blurBackground,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Tags(
+                        tag: 'Discovery',
                       ),
-                    ),
-                    Text(
-                      item.description,
-                      style: TextStyle(
+                      SizedBox(
+                        height: Dimens.marginSmall,
+                      ),
+                      Text(
+                        item.title,
+                        style: TextStyle(
                           color: AppColors.white,
-                          fontSize: Dimens.itemTextSubTitle,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ],
+                          fontWeight: FontWeight.bold,
+                          fontSize: Dimens.bigTitle,
+                        ),
+                      ),
+                      Text(
+                        item.description,
+                        style: TextStyle(
+                            color: AppColors.white,
+                            fontSize: Dimens.itemTextSubTitle,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
+              ],
             ),
           ),
         ),
