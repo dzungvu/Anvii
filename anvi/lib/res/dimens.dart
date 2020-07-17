@@ -58,4 +58,6 @@ class Dimens {
 
   // Thumbnail padding
   static const thumbnailPadding = 2.0;
+
+  static const backIconSize = 28.0;
 }

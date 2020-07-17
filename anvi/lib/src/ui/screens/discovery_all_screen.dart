@@ -27,21 +27,33 @@ class DiscoveryAllScreen extends StatelessWidget {
 
   Widget _getItemAt(int index, BuildContext context) {
     if (index == 0) {
-      return _getHeader();
+      return _getHeader(context);
     } else {
       return _getItem(index, context);
     }
   }
 
-  Widget _getHeader() {
-    return Container(
-      padding: EdgeInsets.all(
-        Dimens.marginCommon,
-      ),
-      child: Text(
-        'Discovery',
-        style: AppStyle.MAIN_MOUDLE_TITLE,
-      ),
+  Widget _getHeader(BuildContext context) {
+    return Row(
+      children: <Widget>[
+        Padding(
+          padding: const EdgeInsets.all(Dimens.marginSmall),
+          child: IconButton(
+            icon: Icon(Icons.arrow_back_ios),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            iconSize: Dimens.backIconSize,
+            color: AppColors.iconColorWithoutAppbar,
+          ),
+        ),
+        Container(
+          child: Text(
+            'Discovery',
+            style: AppStyle.MAIN_MOUDLE_TITLE,
+          ),
+        ),
+      ],
     );
   }
 

@@ -27,6 +27,20 @@ class FilmDetailHeader extends StatelessWidget {
             fit: BoxFit.cover,
           ),
           Positioned(
+            top: 32,
+            left: Dimens.marginCommon,
+            child: IconButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              icon: Icon(
+                Icons.arrow_back_ios,
+                size: Dimens.backIconSize,
+                color: AppColors.white,
+              ),
+            ),
+          ),
+          Positioned(
             top: 150,
             left: 16,
             child: Container(
