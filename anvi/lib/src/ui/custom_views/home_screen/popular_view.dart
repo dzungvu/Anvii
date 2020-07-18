@@ -1,12 +1,15 @@
 import 'package:anvi/res/dimens.dart';
-import 'package:anvi/src/models/base_info.dart';
+import 'package:anvi/src/models/popular_film_info.dart';
 import 'package:anvi/src/ui/custom_views/titles/moudle_title.dart';
 import 'package:anvi/src/ui/items/popular_item.dart';
+import 'package:anvi/src/ui/screens/popular_all_screen.dart';
 import 'package:flutter/material.dart';
 
 class PopularView extends StatelessWidget {
-  List<BaseInfo> infos;
+  final List<PopularFilmInfo> infos;
+
   PopularView({key, @required this.infos}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -17,6 +20,7 @@ class PopularView extends StatelessWidget {
           title: 'Popular',
           onTapShowAll: () {
             print('show all');
+            Navigator.of(context).pushNamed(PopularAllScreen.routeName);
           },
         ),
         SizedBox(

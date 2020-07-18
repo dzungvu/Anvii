@@ -16,21 +16,29 @@ class DiscoveryAllScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.darkWhite,
-      body: Container(
-        child: ListView.builder(
-          itemBuilder: (context, index) => _getItemAt(index, context),
-          itemCount: listData.length + 1,
+      body: SafeArea(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            _getHeader(context),
+            Expanded(
+              flex: 1,
+              child: Container(
+                child: ListView.builder(
+                  itemBuilder: (context, index) => _getItemAt(index, context),
+                  itemCount: listData.length,
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
   }
 
   Widget _getItemAt(int index, BuildContext context) {
-    if (index == 0) {
-      return _getHeader(context);
-    } else {
-      return _getItem(index, context);
-    }
+    return _getItem(index, context);
   }
 
   Widget _getHeader(BuildContext context) {
@@ -60,7 +68,7 @@ class DiscoveryAllScreen extends StatelessWidget {
   Widget _getItem(index, context) {
     return DiscoveryViewItem(
       context: context,
-      item: listData[index - 1],
+      item: listData[index],
       height: 200,
     );
   }

@@ -5,6 +5,7 @@ import 'package:anvi/src/ui/screens/film_detail_screen.dart';
 import 'package:anvi/src/ui/screens/home_page.dart';
 import 'package:anvi/src/ui/screens/image_full_screen.dart';
 import 'package:anvi/src/ui/screens/login_screen.dart';
+import 'package:anvi/src/ui/screens/popular_all_screen.dart';
 import 'package:anvi/src/ui/screens/register_screen.dart';
 import 'package:anvi/src/ui/screens/player_screen.dart';
 import 'package:anvi/src/ui/screens/discovery_film_detail_screen.dart';
@@ -20,4 +21,5 @@ final routes = {
   ImageFullScreen.routeName: (context) => ImageFullScreen(),
   DiscoveryFilmDetailScreen.routeName: (context) => DiscoveryFilmDetailScreen(),
   DiscoveryAllScreen.routeName: (context) => DiscoveryAllScreen(),
+  PopularAllScreen.routeName: (context) => PopularAllScreen(),
 };

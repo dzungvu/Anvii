@@ -2,6 +2,7 @@ class Dimens {
   static const appbarTextSize = 25.0;
   static const safeAreaDistance = 16.0;
   static const safeAreaSmall = 8.0;
+  static const safeAreaTini = 4.0;
 
   static const mainMoudleTitle = 25.0;
 

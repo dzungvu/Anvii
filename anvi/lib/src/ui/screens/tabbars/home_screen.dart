@@ -27,7 +27,7 @@ class HomeScreen extends StatelessWidget {
         return DiscoveryView();
       case 1:
         return PopularView(
-          infos: SampleData.getBaseInfoList(),
+          infos: SampleData.getPopularFilmList(),
         );
       case 2:
         return FilmView(

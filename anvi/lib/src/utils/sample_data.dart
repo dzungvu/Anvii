@@ -5,6 +5,7 @@ import 'package:anvi/src/models/discovery_item.dart';
 import 'package:anvi/src/models/film_genres_info.dart';
 import 'package:anvi/src/models/film_info.dart';
 import 'package:anvi/src/models/point.dart';
+import 'package:anvi/src/models/popular_film_info.dart';
 import 'package:anvi/src/models/trending_item_info.dart';
 import 'package:anvi/src/models/bookmark_info.dart';
 import 'package:anvi/src/models/user_info.dart';
@@ -113,7 +114,8 @@ class SampleData {
             'https://c4.wallpaperflare.com/wallpaper/651/144/865/anime-crossover-albedo-overlord-ash-ketchum-wallpaper-preview.jpg',
         type: 0,
         title: 'Discovery film 2',
-        description: 'Description discovery film 2 Description discovery film 2 Description discovery film 2',
+        description:
+            'Description discovery film 2 Description discovery film 2 Description discovery film 2',
       ),
     );
     data.add(
@@ -123,7 +125,8 @@ class SampleData {
             'https://i2.wp.com/news.qoo-app.com/wp-content/uploads/2017/12/17122607442160.jpg',
         type: 1,
         title: 'Discovery character 1',
-        description: 'Description discovery character 1 Description discovery character 1 Description discovery character 1 ',
+        description:
+            'Description discovery character 1 Description discovery character 1 Description discovery character 1 ',
       ),
     );
     data.add(
@@ -133,11 +136,28 @@ class SampleData {
             'https://d2jcw5q7j4vmo4.cloudfront.net/ZVSDLK0DIT3uzOGY5B2-mNaTbK_9SE7nswGy2oDTuF2zNPzi6_dTNoxVDopdabh7tQ=w1440-h620',
         type: 0,
         title: 'Discovery character 2',
-        description: 'Description discovery character 2 Description discovery character 2 Description discovery character 2 ',
+        description:
+            'Description discovery character 2 Description discovery character 2 Description discovery character 2 ',
       ),
     );
 
     return data;
+  }
+
+  static List<PopularFilmInfo> getPopularFilmList() {
+    List<PopularFilmInfo> listData = [];
+    for (int i = 0; i < 10; i++) {
+      var film = getFilmList()[i];
+      listData.add(
+        PopularFilmInfo(
+          authorName: film.authorName,
+          title: film.animeName,
+          imageUrl: film.thumbnailUrl,
+          id: '1',
+        ),
+      );
+    }
+    return listData;
   }
 
   static List<String> getThumbnailList() {
