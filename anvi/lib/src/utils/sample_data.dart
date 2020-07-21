@@ -19,6 +19,7 @@ class SampleData {
     for (int i = 0; i < 10; i++) {
       data.add(
         FilmInfo(
+          id: '$i',
           productionName: getProductionList()[i],
           totalEpisode: getTotalEpsList()[i],
           currentEpisode: getCurrentEpsList()[i],

@@ -2,6 +2,7 @@ import 'package:anvi/src/models/base_info.dart';
 import 'package:flutter/material.dart';
 
 class FilmInfo extends BaseInfo {
+  final String id;
   final String productionName;
   final int totalEpisode;
   final int currentEpisode;
@@ -13,6 +14,7 @@ class FilmInfo extends BaseInfo {
   final String publishTime;
 
   FilmInfo({
+    @required this.id,
     @required this.productionName,
     @required this.totalEpisode,
     @required this.currentEpisode,

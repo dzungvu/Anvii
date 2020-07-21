@@ -1,7 +1,6 @@
 import 'package:anvi/res/colors.dart';
 import 'package:anvi/res/dimens.dart';
 import 'package:anvi/src/models/film_detail.dart';
-import 'package:anvi/src/models/film_info.dart';
 import 'package:anvi/src/ui/custom_views/film_detail_screen/film_charaters.dart';
 import 'package:anvi/src/ui/custom_views/film_detail_screen/film_description.dart';
 import 'package:anvi/src/ui/custom_views/film_detail_screen/film_detail_header.dart';
@@ -18,7 +17,7 @@ class FilmDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final FilmInfo args = ModalRoute.of(context).settings.arguments;
+    final String id = ModalRoute.of(context).settings.arguments;
 
     //TODO: Value of this screen will be recieved by calling API
     FilmDetail data = SampleData.getFilmDetail();
