@@ -255,6 +255,7 @@ class SampleData {
     List<CharacterInfo> data = [];
     for (int i = 0; i < 10; i++) {
       data.add(CharacterInfo(
+          id: '$i',
           characterName: getListCharaterName()[i],
           characterImage: getListCharaterImage()[i],
           longDes: getListCharacterLongDes()[i],

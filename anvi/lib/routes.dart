@@ -1,3 +1,4 @@
+import 'package:anvi/src/ui/screens/character_all_screen.dart';
 import 'package:anvi/src/ui/screens/discovery_all_screen.dart';
 import 'package:anvi/src/ui/screens/addition_info_screen.dart';
 import 'package:anvi/src/ui/screens/characters_detail_screen.dart';
@@ -24,4 +25,5 @@ final routes = {
   DiscoveryAllScreen.routeName: (context) => DiscoveryAllScreen(),
   PopularAllScreen.routeName: (context) => PopularAllScreen(),
   FilmAllScreen.routeName: (context) => FilmAllScreen(),
+  CharacterAllScreen.routName: (context) => CharacterAllScreen(),
 };
