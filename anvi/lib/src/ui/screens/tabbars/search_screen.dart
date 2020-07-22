@@ -7,7 +7,7 @@ import 'package:anvi/src/utils/sample_data.dart';
 import 'package:flutter/material.dart';
 
 class SearchScreen extends StatelessWidget {
-  Widget _getViewAt(int pos) {
+  Widget _getViewAt(int pos, BuildContext context) {
     switch (pos) {
       case 0:
         return FilmGenresView(listData: SampleData.getListFilmGenres());
@@ -43,7 +43,7 @@ class SearchScreen extends StatelessWidget {
           ),
           SliverList(
             delegate: SliverChildBuilderDelegate(
-              (_, index) => _getViewAt(index),
+              (_, index) => _getViewAt(index, context),
               childCount: 7,
             ),
           ),

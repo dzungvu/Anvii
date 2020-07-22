@@ -26,7 +26,7 @@ class PopularAllScreen extends StatelessWidget {
         ),
         child: GridView.count(
             crossAxisCount: 2,
-            childAspectRatio: 4 / 5,
+            childAspectRatio: 3 / 4,
             children: List.generate(
               _listData.length,
               (index) => PopularItemView(
