@@ -8,6 +8,7 @@ class HorizontalRadio<T> extends StatelessWidget {
   Color textEnableColor;
   Color textDisableColor;
   final List<T> listData;
+  Function onPress;
 
   HorizontalRadio({
     Key key,
@@ -16,6 +17,7 @@ class HorizontalRadio<T> extends StatelessWidget {
     this.textDisableColor,
     this.textEnableColor,
     @required this.listData,
+    @required this.onPress,
   }) : super(key: key);
 
   @override
@@ -57,25 +59,28 @@ class HorizontalRadio<T> extends StatelessWidget {
   }
 
   Widget _getItemAt(int index) {
-    return Container(
-      padding: EdgeInsets.symmetric(
-        horizontal: Dimens.marginCommon,
-        vertical: 6.0,
-      ),
-      decoration: BoxDecoration(
-        color: indicatorColor,
-        borderRadius: BorderRadius.all(
-          Radius.circular(
-            Dimens.borderInputMedium,
+    return GestureDetector(
+      onTap: onPress(index),
+      child: Container(
+        padding: EdgeInsets.symmetric(
+          horizontal: Dimens.marginCommon,
+          vertical: 6.0,
+        ),
+        decoration: BoxDecoration(
+          color: indicatorColor,
+          borderRadius: BorderRadius.all(
+            Radius.circular(
+              Dimens.borderInputMedium,
+            ),
           ),
         ),
-      ),
-      child: Align(
-        alignment: Alignment.center,
-        child: Text(
-          listData[index].toString(),
-          style: TextStyle(
-            fontSize: Dimens.itemTextTitle,
+        child: Align(
+          alignment: Alignment.center,
+          child: Text(
+            listData[index].toString(),
+            style: TextStyle(
+              fontSize: Dimens.itemTextTitle,
+            ),
           ),
         ),
       ),
