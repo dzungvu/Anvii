@@ -12,6 +12,7 @@ import 'package:anvi/src/models/user_info.dart';
 import 'package:anvi/src/models/film_detail.dart';
 import 'package:anvi/src/models/writer_info.dart';
 import 'package:anvi/src/models/production_info.dart';
+import 'package:anvi/src/models/search_result_info.dart';
 
 class SampleData {
   static List<FilmInfo> getFilmList() {
@@ -429,6 +430,13 @@ class SampleData {
       gender: 'Male',
       avatar:
           'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR_Ngy4QOszrDxr3dAFHqsWRONTxmiGSukjzRUvJKWJGcoz-9JO&usqp=CAU',
+    );
+  }
+
+  static SearchResultInfo getSearchResult() {
+    return SearchResultInfo(
+      listFilm: getFilmList(),
+      listCharacter: getListCharacter(),
     );
   }
 }
