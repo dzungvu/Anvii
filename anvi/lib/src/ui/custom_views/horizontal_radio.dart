@@ -60,7 +60,10 @@ class HorizontalRadio<T> extends StatelessWidget {
 
   Widget _getItemAt(int index) {
     return GestureDetector(
-      onTap: onPress(index),
+      onTap: () {
+        print('$index');
+        onPress(index);
+      },
       child: Container(
         padding: EdgeInsets.symmetric(
           horizontal: Dimens.marginCommon,

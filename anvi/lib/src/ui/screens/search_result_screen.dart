@@ -36,8 +36,8 @@ class SearchResultAllHeader extends SliverPersistentHeaderDelegate {
     return Container(
       child: HorizontalRadio(
         listData: listTitle,
-        onPress: (index) => {
-          print('Click at item $index'),
+        onPress: (index) {
+          print('Click at item $index');
         },
       ),
     );
