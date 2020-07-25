@@ -1,5 +1,6 @@
 import 'package:anvi/res/colors.dart';
 import 'package:anvi/res/dimens.dart';
+import 'package:anvi/src/blocs/horizontal_radio_block.dart';
 import 'package:flutter/material.dart';
 
 class HorizontalRadio<T> extends StatelessWidget {
@@ -27,6 +28,8 @@ class HorizontalRadio<T> extends StatelessWidget {
     if (textDisableColor == null) textDisableColor = AppColors.white;
     if (textEnableColor == null) textEnableColor = AppColors.black;
 
+    var _bloc = HorizontalRadioBloc();
+
     return Align(
       alignment: Alignment.center,
       child: Wrap(
@@ -43,26 +46,31 @@ class HorizontalRadio<T> extends StatelessWidget {
             padding: EdgeInsets.all(
               Dimens.safeAreaSmall,
             ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: List.generate(
-                listData.length,
-                (index) => _getItemAt(index),
-              ),
-            ),
+            child: StreamBuilder(
+                stream: _bloc.stream,
+                builder: (context, snapshot) {
+                  var selectItem = snapshot.data == null ? 0 : snapshot.data;
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: List.generate(
+                      listData.length,
+                      (index) => _getItemAt(index, index == selectItem, _bloc),
+                    ),
+                  );
+                }),
           ),
         ],
       ),
     );
   }
 
-  Widget _getItemAt(int index) {
+  Widget _getItemAt(index, isSelected, HorizontalRadioBloc bloc) {
     return GestureDetector(
       onTap: () {
-        print('$index');
         onPress(index);
+        bloc.selectItem(index);
       },
       child: Container(
         padding: EdgeInsets.symmetric(
@@ -70,7 +78,7 @@ class HorizontalRadio<T> extends StatelessWidget {
           vertical: 6.0,
         ),
         decoration: BoxDecoration(
-          color: indicatorColor,
+          color: isSelected ? indicatorColor : backgroundColor,
           borderRadius: BorderRadius.all(
             Radius.circular(
               Dimens.borderInputMedium,
@@ -83,6 +91,7 @@ class HorizontalRadio<T> extends StatelessWidget {
             listData[index].toString(),
             style: TextStyle(
               fontSize: Dimens.itemTextTitle,
+              color: isSelected ? textEnableColor : textDisableColor,
             ),
           ),
         ),
