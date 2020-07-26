@@ -23,6 +23,7 @@ class AppColors {
   static const Color ddarkWhite = Color(0xFFACACAE);
   static const Color darkWhite = Color(0xFFF0F0F0);
   static const Color white = Colors.white;
+  static final Color whiteAlPha = Colors.white.withOpacity(.80);
 
   static const Color tagBg = Color(0xFF3F85FC);
   static const Color star = Colors.yellowAccent;

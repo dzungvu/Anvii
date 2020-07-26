@@ -6,16 +6,22 @@ class Sticker extends StatelessWidget {
   final String imageUrl;
   final String title;
   final String content;
+  final StickerTheme theme;
 
   Sticker({
     Key key,
     @required this.imageUrl,
     @required this.title,
     @required this.content,
+    this.theme,
   });
 
   @override
   Widget build(BuildContext context) {
+    var _currentTheme = StickerTheme.DARK;
+    if (theme != null) {
+      _currentTheme = theme;
+    }
     return Container(
       height: 50,
       width: double.infinity,
@@ -27,6 +33,9 @@ class Sticker extends StatelessWidget {
             imageUrl,
             fit: BoxFit.cover,
             height: 40,
+            color: _currentTheme == StickerTheme.DARK
+                ? AppColors.black
+                : AppColors.white,
           ),
           SizedBox(
             width: Dimens.marginSmall,
@@ -42,7 +51,9 @@ class Sticker extends StatelessWidget {
                     title,
                     style: TextStyle(
                       fontSize: Dimens.itemTextSubTitle,
-                      color: AppColors.lightBlack,
+                      color: _currentTheme == StickerTheme.DARK
+                          ? AppColors.lightBlack
+                          : AppColors.white,
                     ),
                     overflow: TextOverflow.ellipsis,
                     softWrap: false,
@@ -53,6 +64,11 @@ class Sticker extends StatelessWidget {
                     content,
                     overflow: TextOverflow.ellipsis,
                     softWrap: false,
+                    style: TextStyle(
+                      color: _currentTheme == StickerTheme.DARK
+                          ? AppColors.lightBlack
+                          : AppColors.white,
+                    ),
                   ),
                 ),
               ],
@@ -62,4 +78,9 @@ class Sticker extends StatelessWidget {
       ),
     );
   }
+}
+
+enum StickerTheme {
+  BRIGHT,
+  DARK,
 }

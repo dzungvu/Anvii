@@ -52,7 +52,7 @@ class FilmView extends StatelessWidget {
         print('Navigate to detail screen'),
         Navigator.of(context).pushNamed(
           FilmDetailScreen.routeName,
-          arguments: infos[index],
+          arguments: infos[index].id,
         ),
       },
     );

@@ -64,7 +64,7 @@ class SampleData {
     return ProductionInfo(
         id: 'pd00001',
         imageUrl:
-            'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/BANDAI_NAMCO_logo.svg/300px-BANDAI_NAMCO_logo.svg.png',
+            'https://www.bandai.com/wp-content/themes/bandai/images/bandai_logo_header.png',
         name: 'Bandai Namco',
         productionUrl: 'https://www.bandainamcoent.com');
   }
